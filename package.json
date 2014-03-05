@@ -1,0 +1,30 @@
+{
+  "name": "grunt-ssh-multi-exec",
+  "version": "0.0.1",
+  "description": "Grunt task for executing series of SSH commands",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ArnoldZokas/grunt-ssh-multi-exec"
+  },
+  "keywords": [
+    "grunt",
+    "ssh"
+  ],
+  "author": "Arnold Zokas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArnoldZokas/grunt-ssh-multi-exec/issues"
+  },
+  "devDependencies": {
+    "grunt-cli": "~0.1.13",
+    "grunt": "~0.4.2",
+    "jshint-stylish": "~0.1.5",
+    "time-grunt": "~0.2.10",
+    "load-grunt-tasks": "^0.4.0",
+    "grunt-contrib-jshint": "^0.8.0"
+  }
+}
