@@ -24,5 +24,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', ['lint']);
 	grunt.registerTask('lint', ['jshint:all']);
-	grunt.registerTask('test', ['vagrant-up','vagrant-destroy']);
+	grunt.registerTask('test', ['nodeunit']);
+	grunt.registerTask('acceptance-test', ['vagrant-up', '','vagrant-destroy']);
 };
