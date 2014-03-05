@@ -28,5 +28,8 @@
     "grunt-contrib-jshint": "^0.8.0",
     "shelljs": "^0.2.6",
     "grunt-contrib-nodeunit": "^0.3.2"
+  },
+  "dependencies": {
+    "ssh2": "^0.2.19"
   }
 }
