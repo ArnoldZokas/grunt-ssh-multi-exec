@@ -1,7 +1,5 @@
-grunt-ssh-multi-exec
-====================
-
-Grunt task for executing series of SSH commands
+#grunt-ssh-multi-exec
+> Execute set of SSH commands against multiple boxes
 
 ###Release History
 * **v0.1.0** (2014-03-07) - initial release
