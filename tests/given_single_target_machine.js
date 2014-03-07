@@ -1,12 +1,10 @@
 'use strict';
 
-var grunt = require('grunt');
-
 exports.when_executing_single_successfull_command = {
     it_should_execute_success_callback: function(test) {
         test.expect(1);
 
-        var task = require('../src/ssh-multi-exec')(grunt);
+        var task = require('../src/ssh-multi-exec')(require('grunt'));
         task.call({
             async: function(){ return function(){}; },
             data: {
@@ -32,7 +30,7 @@ exports.when_executing_single_failing_command = {
     it_should_execute_error_callback: function(test) {
         test.expect(1);
 
-        var task = require('../src/ssh-multi-exec')(grunt);
+        var task = require('../src/ssh-multi-exec')(require('grunt'));
         task.call({
             async: function(){ return function(){}; },
             data: {

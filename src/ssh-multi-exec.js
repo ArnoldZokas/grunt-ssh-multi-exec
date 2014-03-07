@@ -16,7 +16,9 @@ var init = function() {
 
     tunnel.on('ready', function() {
         var shellPrefix = (username + '@' + host + ':~$ ').cyan,
-            command = commands[0].command.toString();
+            command = commands[0].command.toString(),
+            success = commands[0].success || function(){},
+            error = commands[0].error || function(){};
 
         log('\n\n' + shellPrefix + (command).yellow);
 
@@ -24,11 +26,14 @@ var init = function() {
             if (err) throw err;
 
             stream.on('data', function(data, extended) {
-                log(shellPrefix + data.toString().green);
-                if(extended === 'stderr')
-                    commands[0].error(data.toString());
-                else
-                    commands[0].success(data.toString());
+                data = data.toString();
+                if(extended === 'stderr') {
+                    log(shellPrefix + data.red);
+                    error(data);
+                } else {
+                    log(shellPrefix + data.green);
+                    success(data);
+                }
             });
 
             stream.on('close', function() {
