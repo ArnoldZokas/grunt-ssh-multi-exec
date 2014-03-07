@@ -7,6 +7,7 @@ var _ = require('underscore'),
 
 var init = function() {
     var done = this.async(),
+        target = this.target,
         config = this.data,
         host = config.hosts[0],
         port = config.port,
@@ -16,6 +17,8 @@ var init = function() {
         tunnel = new ssh();
 
     tunnel.on('ready', function() {
+        log(('\n\nexecuting command set "' + target + '" against hosts: ' + config.hosts).underline);
+
         var executeCommand = function(command) {
             var shellPrefix = (username + '@' + host + ':~$ ').cyan;
 
@@ -23,7 +26,7 @@ var init = function() {
                 success = command.success || function(){},
                 error = command.error || function(){};
 
-            log('\n' + shellPrefix + (input).yellow);
+            log(shellPrefix + (input).yellow);
 
             tunnel.exec(input, function(err, stream) {
                 if (err) throw err;

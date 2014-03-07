@@ -6,6 +6,7 @@ exports.when_executing_single_successfull_command = {
 
         var task = require('../src/ssh-multi-exec')(require('grunt'));
         task.call({
+            target: 'echoes',
             async: function(){ return function(){}; },
             data: {
                 hosts: ['127.0.0.1'],
@@ -32,6 +33,7 @@ exports.when_executing_multiple_successfull_commands = {
 
         var task = require('../src/ssh-multi-exec')(require('grunt'));
         task.call({
+            target: 'echoes',
             async: function(){ return function(){}; },
             data: {
                 hosts: ['127.0.0.1'],
@@ -64,6 +66,7 @@ exports.when_executing_single_failing_command = {
 
         var task = require('../src/ssh-multi-exec')(require('grunt'));
         task.call({
+            target: 'echoes',
             async: function(){ return function(){}; },
             data: {
                 hosts: ['127.0.0.1'],
