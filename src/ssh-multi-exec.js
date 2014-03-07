@@ -23,9 +23,12 @@ var init = function() {
         tunnel.exec(command.toString(), function(err, stream) {
             if (err) throw err;
 
-            stream.on('data', function(data) {
+            stream.on('data', function(data, extended) {
                 log(shellPrefix + data.toString().green);
-                commands[0].success(data.toString());
+                if(extended === 'stderr')
+                    commands[0].error(data.toString());
+                else
+                    commands[0].success(data.toString());
             });
 
             stream.on('close', function() {
