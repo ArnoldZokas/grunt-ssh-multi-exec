@@ -29,7 +29,9 @@ var init = function() {
             log(shellPrefix + (input).yellow);
 
             tunnel.exec(input, function(err, stream) {
-                if (err) throw err;
+                if (err) {
+                    throw err;
+                }
 
                 stream.on('data', function(data, extended) {
                     data = data.toString();
@@ -40,8 +42,9 @@ var init = function() {
                         log(shellPrefix + data.green);
                         success(data);
 
-                        if(!_.isEmpty(commands))
+                        if(!_.isEmpty(commands)) {
                             executeCommand(commands.shift());
+                        }
                     }
                 });
 
