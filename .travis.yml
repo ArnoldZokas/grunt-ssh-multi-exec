@@ -7,5 +7,6 @@ install:
   - sudo apt-get -y --force-yes install virtualbox-4.3
   - sudo apt-get -y --force-yes install vagrant
   - npm install -g grunt-cli
+  - npm install
 before_script:
   - grunt lint
