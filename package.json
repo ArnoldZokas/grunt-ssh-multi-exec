@@ -12,6 +12,7 @@
   },
   "keywords": [
     "grunt",
+    "gruntplugin",
     "ssh"
   ],
   "author": "Arnold Zokas",
