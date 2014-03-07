@@ -1,6 +1,14 @@
 language: node_js
 node_js:
   - "0.10.22"
-before_install: npm install -g grunt-cli
-install: npm install
-before_script: grunt lint
+before_install:
+  - npm install -g grunt-cli
+install:
+  - sudo echo "deb http://download.virtualbox.org/virtualbox/debian precise contrib" | sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update
+  - sudo apt-get -y --force-yes install virtualbox-4.3
+  - sudo apt-get install linux-headers-$(uname -r)
+  - sudo dpkg-reconfigure virtualbox-dkms
+  - sudo apt-get -y --force-yes install vagrant
+before_script:
+  - grunt lint
