@@ -7,8 +7,6 @@ install:
   - sudo echo "deb http://download.virtualbox.org/virtualbox/debian precise contrib" | sudo tee -a /etc/apt/sources.list
   - sudo apt-get update
   - sudo apt-get -y --force-yes install virtualbox-4.3
-  - sudo apt-get install linux-headers-generic
-  - sudo dpkg-reconfigure virtualbox-dkms
   - sudo apt-get -y --force-yes install vagrant
 before_script:
   - grunt lint
