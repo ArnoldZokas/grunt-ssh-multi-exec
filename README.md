@@ -70,7 +70,7 @@ config: {
 **!! WIP !!**
 
 ###Release History
-* **v0.1.0** (2014-03-08) - initial release
+* **v0.1.0** (2014-03-07) - initial release
 
 ###Contributors
 * [@matteofigus](https://github.com/matteofigus)
