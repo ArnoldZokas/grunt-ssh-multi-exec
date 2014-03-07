@@ -43,6 +43,28 @@ config: {
 }
 ```
 
+####Single machine, multiple commands
+Commands are executed sequentially.
+```js
+config: {
+  hosts: ['127.0.0.1'],
+  port: 22,
+  username: 'user',
+  privateKey: '/path/to/private/key',
+  commands: [
+    {
+      input: 'touch me'
+    },
+    {
+      input: 'touch again'
+    }
+  ]
+}
+```
+
+####Multiple machines, multiple commands
+**!! WIP !!**
+
 ###Release History
 * **v0.1.0** (2014-03-08) - initial release
 
