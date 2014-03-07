@@ -1,6 +1,7 @@
 'use strict';
 
-var fs  = require('fs'),
+var _ = require('underscore'),
+    fs  = require('fs'),
     ssh = require('ssh2'),
     log = console.log;
 
@@ -15,31 +16,39 @@ var init = function() {
         tunnel = new ssh();
 
     tunnel.on('ready', function() {
-        var shellPrefix = (username + '@' + host + ':~$ ').cyan,
-            command = commands[0].command.toString(),
-            success = commands[0].success || function(){},
-            error = commands[0].error || function(){};
+        var executeCommand = function(command) {
+            var shellPrefix = (username + '@' + host + ':~$ ').cyan;
 
-        log('\n\n' + shellPrefix + (command).yellow);
+            var input = command.input.toString(),
+                success = command.success || function(){},
+                error = command.error || function(){};
 
-        tunnel.exec(command.toString(), function(err, stream) {
-            if (err) throw err;
+            log('\n\n' + shellPrefix + (input).yellow);
 
-            stream.on('data', function(data, extended) {
-                data = data.toString();
-                if(extended === 'stderr') {
-                    log(shellPrefix + data.red);
-                    error(data);
-                } else {
-                    log(shellPrefix + data.green);
-                    success(data);
-                }
+            tunnel.exec(input, function(err, stream) {
+                if (err) throw err;
+
+                stream.on('data', function(data, extended) {
+                    data = data.toString();
+                    if(extended === 'stderr') {
+                        log(shellPrefix + data.red);
+                        error(data);
+                    } else {
+                        log(shellPrefix + data.green);
+                        success(data);
+
+                        if(!_.isEmpty(commands))
+                            executeCommand(commands.shift());
+                    }
+                });
+
+                stream.on('close', function() {
+                    done();
+                });
             });
+        };
 
-            stream.on('close', function() {
-                done();
-            });
-        });
+        executeCommand(commands.shift());
     });
 
     tunnel.on('error', function(err) {

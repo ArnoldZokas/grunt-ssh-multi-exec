@@ -14,9 +14,41 @@ exports.when_executing_single_successfull_command = {
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
                 commands: [
                     {
-                        command: 'echo 1',
+                        input: 'echo 1',
                         success: function(data) {
                             test.strictEqual(data, '1\n');
+                            test.done();
+                        }
+                    }
+                ]
+            }
+        });
+    }
+};
+
+exports.when_executing_multiple_successfull_commands = {
+    it_should_execute_success_callback: function(test) {
+        test.expect(2);
+
+        var task = require('../src/ssh-multi-exec')(require('grunt'));
+        task.call({
+            async: function(){ return function(){}; },
+            data: {
+                hosts: ['127.0.0.1'],
+                port: 2222,
+                username: 'vagrant',
+                privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
+                commands: [
+                    {
+                        input: 'echo 2',
+                        success: function(data) {
+                            test.strictEqual(data, '2\n');
+                        }
+                    },
+                    {
+                        input: 'echo 3',
+                        success: function(data) {
+                            test.strictEqual(data, '3\n');
                             test.done();
                         }
                     }
@@ -40,7 +72,7 @@ exports.when_executing_single_failing_command = {
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
                 commands: [
                     {
-                        command: 'batman',
+                        input: 'batman',
                         error: function(err) {
                             test.strictEqual(err, 'bash: batman: command not found\n');
                             test.done();
