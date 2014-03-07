@@ -1,7 +1,6 @@
 'use strict';
 
-var _ = require('underscore'),
-    fs  = require('fs'),
+var fs  = require('fs'),
     ssh = require('ssh2'),
     log = console.log;
 
@@ -42,7 +41,7 @@ var init = function() {
                         log(shellPrefix + data.green);
                         success(data);
 
-                        if(!_.isEmpty(commands)) {
+                        if(commands.length > 0) {
                             executeCommand(commands.shift());
                         }
                     }
