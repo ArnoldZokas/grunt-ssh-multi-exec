@@ -30,6 +30,7 @@
     "grunt-contrib-nodeunit": "^0.3.2"
   },
   "dependencies": {
-    "ssh2": "^0.2.19"
+    "ssh2": "^0.2.19",
+    "colors": "^0.6.2"
   }
 }
