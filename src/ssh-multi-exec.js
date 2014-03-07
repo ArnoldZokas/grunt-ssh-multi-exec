@@ -23,7 +23,7 @@ var init = function() {
                 success = command.success || function(){},
                 error = command.error || function(){};
 
-            log('\n\n' + shellPrefix + (input).yellow);
+            log('\n' + shellPrefix + (input).yellow);
 
             tunnel.exec(input, function(err, stream) {
                 if (err) throw err;
