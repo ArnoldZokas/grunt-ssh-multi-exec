@@ -4,7 +4,7 @@
   "description": "Execute set of SSH commands against multiple boxes",
   "main": "gruntfile.js",
   "scripts": {
-    "test": "grunt acceptance"
+    "test": "grunt lint"
   },
   "repository": {
     "type": "git",
