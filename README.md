@@ -1,6 +1,11 @@
 #grunt-ssh-multi-exec [![Build Status](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec.png?branch=master)](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec)
 > Execute set of SSH commands against multiple boxes
 
+###Getting Started
+```shell
+npm install grunt-ssh-multi-exec --save-dev
+```
+
 ###Release History
 * **v0.1.0** (2014-03-08) - initial release
 
