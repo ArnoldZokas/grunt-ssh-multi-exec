@@ -1,4 +1,4 @@
-#grunt-ssh-multi-exec
+#grunt-ssh-multi-exec [![Build Status](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec.png?branch=master)](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec)
 > Execute set of SSH commands against multiple boxes
 
 ###Release History
