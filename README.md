@@ -44,9 +44,10 @@ grunt.initConfig({
   },
 });
 ```
+Commands execute sequentially, in the order specified.
 
-###Examples
-####Single machine, single command
+##Examples
+###Single machine, single command
 ```js
 config: {
   hosts: ['127.0.0.1'],
@@ -61,7 +62,7 @@ config: {
 }
 ```
 
-####Single machine, single command (with callbacks)
+###Single machine, single command (with callbacks)
 ```js
 config: {
   hosts: ['127.0.0.1'],
@@ -82,8 +83,7 @@ config: {
 }
 ```
 
-####Single machine, multiple commands
-Commands are executed sequentially.
+###Single machine, multiple commands
 ```js
 config: {
   hosts: ['127.0.0.1'],
@@ -101,15 +101,15 @@ config: {
 }
 ```
 
-####Multiple machines, multiple commands
+###Multiple machines, multiple commands
 **!! WIP !!**
-
-###Release History
-* **v0.1.0** (2014-03-07) - initial release
 
 ##Roadmap
 * Support for executing command sets against multiple boxes in parallel
 * Support for password-based authentication
+
+##Release History
+* **v0.1.0** (2014-03-07) - initial release
 
 ##Contributors
 * [@matteofigus](https://github.com/matteofigus)
