@@ -12,18 +12,17 @@ var init = function() {
         hosts      = config.hosts,
         username   = config.username,
         privateKey = config.privateKey,
-        password   = config.password,
-        tunnel     = new ssh();
+        password   = config.password;
 
     var executeCommandSet = function(target, callback) {
-        var host = target.split(':')[0],
-            port = target.split(':')[1],
+        var tunnel   = new ssh(),
+            host     = target.split(':')[0],
+            port     = target.split(':')[1],
             commands = config.commands.slice();
 
         tunnel.on('ready', function() {
-            log(target + ' : ready');
             var executeCommand = function(command) {
-                var shellPrefix = (username + '@' + host + ':~$ ').cyan;
+                var shellPrefix = (username + '@' + host + ':' + port + ' ~$ ').cyan;
 
                 var input = command.input.toString(),
                     success = command.success || function(){},
@@ -65,15 +64,12 @@ var init = function() {
         });
 
         if(privateKey) {
-            log(target + ' : before connect');
             tunnel.connect({
                 host: host,
                 port: port,
                 username: username,
-                privateKey: fs.readFileSync(privateKey),
-                debug: console.log
+                privateKey: fs.readFileSync(privateKey)
             });
-            log(target + ' : after connect');
         } else {
             tunnel.connect({
                 host: host,
