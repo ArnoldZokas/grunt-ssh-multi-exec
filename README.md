@@ -112,15 +112,31 @@ config: {
 ```
 
 ###Multiple machines, multiple commands
-**!! WIP !!**
-
-##Roadmap
-* Support for executing command sets against multiple boxes in parallel
+```js
+config: {
+  hosts: ['127.0.0.1:2222', '127.0.0.1:2223'],
+  username: 'user',
+  privateKey: '/path/to/private/key',
+  commands: [
+    {
+      input: 'touch me'
+    },
+    {
+      input: 'touch again'
+    }
+  ]
+}
+```
 
 ##Release History
-* **v0.2.0** (2014-03-10) - Breaking change! added support for targeting multiple boxes
-* **v0.1.2** (2014-03-10) - added password-based authentication
-* **v0.1.0** (2014-03-07) - initial release
+* **v1.0.0** (2014-03-10)
+ * **Breaking change!** - see port configration
+ * added support for executing commands against multiple boxes
+ * added log message batching (clean, coherent logs)
+* **v0.1.2** (2014-03-10)
+ * added password-based authentication
+* **v0.1.0** (2014-03-07)
+ * initial release
 
 ##Contributors
 * [@matteofigus](https://github.com/matteofigus)
