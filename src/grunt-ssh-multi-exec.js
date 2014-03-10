@@ -2,11 +2,11 @@
 
 var fs    = require('fs'),
     async = require('async'),
-    ssh   = require('ssh2'),
-    log   = console.log;
+    ssh   = require('ssh2');
 
 var init = function() {
     var done       = this.async(),
+        logs       = [],
         target     = this.target,
         config     = this.data,
         hosts      = config.hosts,
@@ -14,20 +14,33 @@ var init = function() {
         privateKey = config.privateKey,
         password   = config.password;
 
+    var writeBufferedLog = function(host, msg) {
+        var log = logs[host] || [];
+        log.push(host.cyan + msg);
+        logs[host] = log;
+    };
+
+    var flushBufferedLog = function(host) {
+        var log = logs[host];
+        while(log.length > 0) {
+            console.log(log.shift());
+        }
+    };
+
     var executeCommandSet = function(target, callback) {
-        var tunnel   = new ssh(),
-            host     = target.split(':')[0],
-            port     = target.split(':')[1],
-            commands = config.commands.slice();
+        var tunnel      = new ssh(),
+            host        = target.split(':')[0],
+            port        = target.split(':')[1],
+            commands    = config.commands.slice(),
+            shellPrefix = (username + '@' + host + ':' + port + ' ~$ ');
 
         tunnel.on('ready', function() {
             var executeCommand = function(command) {
-                var shellPrefix = (username + '@' + host + ':' + port + ' ~$ ').cyan,
-                    input       = command.input.toString(),
-                    success     = command.success || function() {},
-                    error       = command.error || function() {};
+                var input   = command.input.toString(),
+                    success = command.success || function() {},
+                    error   = command.error || function() {};
 
-                log(shellPrefix + (input).yellow);
+                writeBufferedLog(shellPrefix, (input).yellow);
 
                 tunnel.exec(input, function(err, stream) {
                     if (err) {
@@ -37,16 +50,18 @@ var init = function() {
                     stream.on('data', function(data, extended) {
                         data = data.toString();
                         if(extended === 'stderr') {
-                            log(shellPrefix + data.red);
+                            writeBufferedLog(shellPrefix, data.red);
+                            flushBufferedLog(shellPrefix);
                             error(data);
                             callback(null, null);
                         } else {
-                            log(shellPrefix + data.green);
+                            writeBufferedLog(shellPrefix, data.green);
                             success(data);
 
                             if(commands.length > 0) {
                                 executeCommand(commands.shift());
                             } else {
+                                flushBufferedLog(shellPrefix);
                                 callback(null, null);
                             }
                         }
@@ -58,7 +73,8 @@ var init = function() {
         });
 
         tunnel.on('error', function(err) {
-            log('Connection error: ' + err);
+            writeBufferedLog(shellPrefix, 'Connection error: ' + err.red);
+            flushBufferedLog(shellPrefix);
             done();
         });
 
@@ -79,7 +95,7 @@ var init = function() {
         }
     };
 
-    log(('\n\nexecuting command set "' + target + '" against hosts: ' + config.hosts).underline);
+    console.log(('\n\nexecuting command set "' + target + '" against hosts: ' + config.hosts).underline);
     async.each(hosts, executeCommandSet, function(){
         done();
     });
