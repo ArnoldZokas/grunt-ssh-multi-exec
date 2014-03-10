@@ -1,5 +1,15 @@
 'use strict';
 
+var wait = function(test, num) {
+    setTimeout(function(){
+        if(test._assertion_list.length === num) {
+            test.done();
+        } else {
+            wait();
+        }
+    }, 50);
+};
+
 exports.when_executing_single_successfull_command = {
     it_should_execute_success_callback: function(test) {
         test.expect(2);
@@ -23,8 +33,6 @@ exports.when_executing_single_successfull_command = {
             }
         });
 
-        setTimeout(function(){
-            test.done();
-        }, 500);
+        wait(test, 2);
     }
 };
