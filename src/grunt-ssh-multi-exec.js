@@ -6,83 +6,86 @@ var fs    = require('fs'),
     log   = console.log;
 
 var init = function() {
-    var done = this.async(),
-        target = this.target,
-        config = this.data,
-        hosts = config.hosts,
-        username = config.username,
+    var done       = this.async(),
+        target     = this.target,
+        config     = this.data,
+        hosts      = config.hosts,
+        username   = config.username,
         privateKey = config.privateKey,
-        password = config.password,
-        commands = config.commands,
-        tunnel = new ssh();
+        password   = config.password,
+        tunnel     = new ssh();
 
-    async.parallel([
-        function(callback) {
-            var host = hosts[0].split(':')[0],
-                port = hosts[0].split(':')[1];
+    var executeCommandSet = function(target, callback) {
+        var host = target.split(':')[0],
+            port = target.split(':')[1],
+            commands = config.commands.slice();
 
-            tunnel.on('ready', function() {
-                log(('\n\nexecuting command set "' + target + '" against hosts: ' + config.hosts).underline);
+        tunnel.on('ready', function() {
+            log(target + ' : ready');
+            var executeCommand = function(command) {
+                var shellPrefix = (username + '@' + host + ':~$ ').cyan;
 
-                var executeCommand = function(command) {
-                    var shellPrefix = (username + '@' + host + ':~$ ').cyan;
+                var input = command.input.toString(),
+                    success = command.success || function(){},
+                    error = command.error || function(){};
 
-                    var input = command.input.toString(),
-                        success = command.success || function(){},
-                        error = command.error || function(){};
+                log(shellPrefix + (input).yellow);
 
-                    log(shellPrefix + (input).yellow);
+                tunnel.exec(input, function(err, stream) {
+                    if (err) {
+                        throw err;
+                    }
 
-                    tunnel.exec(input, function(err, stream) {
-                        if (err) {
-                            throw err;
-                        }
+                    stream.on('data', function(data, extended) {
+                        data = data.toString();
+                        if(extended === 'stderr') {
+                            log(shellPrefix + data.red);
+                            error(data);
+                            callback(null, null);
+                        } else {
+                            log(shellPrefix + data.green);
+                            success(data);
 
-                        stream.on('data', function(data, extended) {
-                            data = data.toString();
-                            if(extended === 'stderr') {
-                                log(shellPrefix + data.red);
-                                error(data);
-                                callback(null, null);
+                            if(commands.length > 0) {
+                                executeCommand(commands.shift());
                             } else {
-                                log(shellPrefix + data.green);
-                                success(data);
-
-                                if(commands.length > 0) {
-                                    executeCommand(commands.shift());
-                                } else {
-                                    callback(null, null);
-                                }
+                                callback(null, null);
                             }
-                        });
+                        }
                     });
-                };
-
-                executeCommand(commands.shift());
-            });
-
-            tunnel.on('error', function(err) {
-                log('Connection error: ' + err);
-                done();
-            });
-
-            if(privateKey) {
-                tunnel.connect({
-                    host: host,
-                    port: port,
-                    username: username,
-                    privateKey: fs.readFileSync(privateKey)
                 });
-            } else {
-                tunnel.connect({
-                    host: host,
-                    port: port,
-                    username: username,
-                    password: password
-                });
-            }
+            };
+
+            executeCommand(commands.shift());
+        });
+
+        tunnel.on('error', function(err) {
+            log('Connection error: ' + err);
+            done();
+        });
+
+        if(privateKey) {
+            log(target + ' : before connect');
+            tunnel.connect({
+                host: host,
+                port: port,
+                username: username,
+                privateKey: fs.readFileSync(privateKey),
+                debug: console.log
+            });
+            log(target + ' : after connect');
+        } else {
+            tunnel.connect({
+                host: host,
+                port: port,
+                username: username,
+                password: password
+            });
         }
-    ], function(){
+    };
+
+    log(('\n\nexecuting command set "' + target + '" against hosts: ' + config.hosts).underline);
+    async.each(hosts, executeCommandSet, function(){
         done();
     });
 };
