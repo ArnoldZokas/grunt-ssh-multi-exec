@@ -23,23 +23,22 @@ In your project's Gruntfile, add a section named `grunt-ssh-multi-exec` to the d
 grunt.initConfig({
   'grunt-ssh-multi-exec': {
     your_target: {
-      hosts: ['ip_or_hostname'],
-        port: 22,
-        username: 'user',
-        privateKey: '/path/to/private/key',
-        commands: [
-          {
-            input: 'uptime',
-            success: function(data) {
-              // optional callback
-              // 'data' contains  stdout response from the targer box
-            },
-            error: function(err) {
-              // optional callback
-              // 'data' contains  stderr response from the targer box
-            }
+      hosts: ['127.0.0.1:2222'],
+      username: 'user',
+      privateKey: '/path/to/private/key',
+      commands: [
+        {
+          input: 'uptime',
+          success: function(data) {
+            // optional callback
+            // 'data' contains  stdout response from the targer box
+          },
+          error: function(err) {
+            // optional callback
+            // 'data' contains  stderr response from the targer box
           }
-        ]
+        }
+      ]
     },
   },
 });
@@ -50,8 +49,7 @@ Commands execute sequentially, in the order specified.
 ###Single machine, single command
 ```js
 config: {
-  hosts: ['127.0.0.1'],
-  port: 22,
+  hosts: ['127.0.0.1:2222'],
   username: 'user',
   privateKey: '/path/to/private/key',
   commands: [
@@ -65,8 +63,7 @@ config: {
 ###Single machine, single command (with callbacks)
 ```js
 config: {
-  hosts: ['127.0.0.1'],
-  port: 22,
+  hosts: ['127.0.0.1:2222'],
   username: 'user',
   privateKey: '/path/to/private/key',
   commands: [
@@ -86,8 +83,7 @@ config: {
 ###Password authentication
 ```js
 config: {
-  hosts: ['127.0.0.1'],
-  port: 22,
+  hosts: ['127.0.0.1:2222'],
   username: 'user',
   password: 'password',
   commands: [
@@ -101,8 +97,7 @@ config: {
 ###Single machine, multiple commands
 ```js
 config: {
-  hosts: ['127.0.0.1'],
-  port: 22,
+  hosts: ['127.0.0.1:2222'],
   username: 'user',
   privateKey: '/path/to/private/key',
   commands: [
@@ -123,6 +118,7 @@ config: {
 * Support for executing command sets against multiple boxes in parallel
 
 ##Release History
+* **v0.2.0** (2014-03-10) - Breaking change! added support for targeting multiple boxes
 * **v0.1.2** (2014-03-10) - added password-based authentication
 * **v0.1.0** (2014-03-07) - initial release
 

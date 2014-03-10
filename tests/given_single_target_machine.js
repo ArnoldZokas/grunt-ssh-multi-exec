@@ -9,8 +9,7 @@ exports.when_executing_single_successfull_command = {
             target: 'echoes',
             async: function(){ return function(){}; },
             data: {
-                hosts: ['127.0.0.1'],
-                port: 2222,
+                hosts: ['127.0.0.1:2222'],
                 username: 'vagrant',
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
                 commands: [
@@ -36,8 +35,7 @@ exports.when_executing_single_successfull_command_using_password_authentication 
             target: 'echoes',
             async: function(){ return function(){}; },
             data: {
-                hosts: ['127.0.0.1'],
-                port: 2222,
+                hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
                 commands: [
@@ -63,8 +61,7 @@ exports.when_executing_multiple_successfull_commands = {
             target: 'echoes',
             async: function(){ return function(){}; },
             data: {
-                hosts: ['127.0.0.1'],
-                port: 2222,
+                hosts: ['127.0.0.1:2222'],
                 username: 'vagrant',
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
                 commands: [
@@ -96,8 +93,7 @@ exports.when_executing_single_failing_command = {
             target: 'echoes',
             async: function(){ return function(){}; },
             data: {
-                hosts: ['127.0.0.1'],
-                port: 2222,
+                hosts: ['127.0.0.1:2222'],
                 username: 'vagrant',
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
                 commands: [
@@ -123,8 +119,7 @@ exports.when_executing_multiple_successfull_commands_and_first_command_fails = {
             target: 'echoes',
             async: function(){ return function(){}; },
             data: {
-                hosts: ['127.0.0.1'],
-                port: 2222,
+                hosts: ['127.0.0.1:2222'],
                 username: 'vagrant',
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
                 commands: [
