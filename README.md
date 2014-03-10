@@ -1,10 +1,6 @@
 #grunt-ssh-multi-exec [![Build Status](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec.png?branch=master)](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec)
 > Execute a set of SSH commands against multiple boxes
 
-##Roadmap
-* Support for executing command sets against multiple boxes in parallel
-* Support for password-based authentication
-
 ## Getting Started
 This plugin requires Grunt `0.4.x`
 
@@ -20,9 +16,34 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-ssh-multi-exec');
 ```
 
+##Overview
+In your project's Gruntfile, add a section named `grunt-ssh-multi-exec` to the data object passed into `grunt.initConfig()`.
 
-
-
+```js
+grunt.initConfig({
+  'grunt-ssh-multi-exec': {
+    your_target: {
+      hosts: ['ip_or_hostname'],
+        port: 22,
+        username: 'username',
+        privateKey: '/path/to/private/key',
+        commands: [
+          {
+            input: 'uptime',
+            success: function(data) {
+              // optional callback
+              // 'data' contains  stdout response from the targer box
+            },
+            error: function(err) {
+              // optional callback
+              // 'data' contains  stderr response from the targer box
+            }
+          }
+        ]
+    },
+  },
+});
+```
 
 ###Examples
 ####Single machine, single command
@@ -86,6 +107,10 @@ config: {
 ###Release History
 * **v0.1.0** (2014-03-07) - initial release
 
-###Contributors
+##Roadmap
+* Support for executing command sets against multiple boxes in parallel
+* Support for password-based authentication
+
+##Contributors
 * [@matteofigus](https://github.com/matteofigus)
 * [@jankowiakmaria](https://github.com/jankowiakmaria)
