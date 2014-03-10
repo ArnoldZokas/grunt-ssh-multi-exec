@@ -25,7 +25,7 @@ grunt.initConfig({
     your_target: {
       hosts: ['ip_or_hostname'],
         port: 22,
-        username: 'username',
+        username: 'user',
         privateKey: '/path/to/private/key',
         commands: [
           {
@@ -83,6 +83,21 @@ config: {
 }
 ```
 
+###Password authentication
+```js
+config: {
+  hosts: ['127.0.0.1'],
+  port: 22,
+  username: 'user',
+  password: 'password',
+  commands: [
+    {
+      input: 'touch me'
+    }
+  ]
+}
+```
+
 ###Single machine, multiple commands
 ```js
 config: {
@@ -106,9 +121,9 @@ config: {
 
 ##Roadmap
 * Support for executing command sets against multiple boxes in parallel
-* Support for password-based authentication
 
 ##Release History
+* **v0.1.2** (2014-03-10) - added password-based authentication
 * **v0.1.0** (2014-03-07) - initial release
 
 ##Contributors

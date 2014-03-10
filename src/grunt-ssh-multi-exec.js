@@ -12,6 +12,7 @@ var init = function() {
         port = config.port,
         username = config.username,
         privateKey = config.privateKey,
+        password = config.password,
         commands = config.commands,
         tunnel = new ssh();
 
@@ -61,12 +62,21 @@ var init = function() {
         done();
     });
 
-    tunnel.connect({
-        host: host,
-        port: port,
-        username: username,
-        privateKey: fs.readFileSync(privateKey)
-    });
+    if(privateKey) {
+        tunnel.connect({
+            host: host,
+            port: port,
+            username: username,
+            privateKey: fs.readFileSync(privateKey)
+        });
+    } else {
+        tunnel.connect({
+            host: host,
+            port: port,
+            username: username,
+            password: password
+        });
+    }
 };
 
 module.exports = function(grunt) {
