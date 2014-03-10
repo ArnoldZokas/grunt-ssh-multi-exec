@@ -22,11 +22,10 @@ var init = function() {
 
         tunnel.on('ready', function() {
             var executeCommand = function(command) {
-                var shellPrefix = (username + '@' + host + ':' + port + ' ~$ ').cyan;
-
-                var input = command.input.toString(),
-                    success = command.success || function(){},
-                    error = command.error || function(){};
+                var shellPrefix = (username + '@' + host + ':' + port + ' ~$ ').cyan,
+                    input       = command.input.toString(),
+                    success     = command.success || function(){},
+                    error       = command.error || function(){};
 
                 log(shellPrefix + (input).yellow);
 
