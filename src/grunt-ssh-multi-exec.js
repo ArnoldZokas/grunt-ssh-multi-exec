@@ -24,8 +24,8 @@ var init = function() {
             var executeCommand = function(command) {
                 var shellPrefix = (username + '@' + host + ':' + port + ' ~$ ').cyan,
                     input       = command.input.toString(),
-                    success     = command.success || function(){},
-                    error       = command.error || function(){};
+                    success     = command.success || function() {},
+                    error       = command.error || function() {};
 
                 log(shellPrefix + (input).yellow);
 
