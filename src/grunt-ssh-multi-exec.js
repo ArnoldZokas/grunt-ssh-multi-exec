@@ -15,15 +15,12 @@ var init = function() {
         password   = config.password;
 
     var writeBufferedLog = function(host, msg) {
-        var log = logs[host] || [];
-        log.push(host.cyan + msg);
-        logs[host] = log;
+        (logs[host] = logs[host] || []).push(host.cyan + msg);
     };
 
     var flushBufferedLog = function(host) {
-        var log = logs[host];
-        while(log.length > 0) {
-            console.log(log.shift());
+        while(logs[host].length > 0) {
+            console.log(logs[host].shift());
         }
     };
 
