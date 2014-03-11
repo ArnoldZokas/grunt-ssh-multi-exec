@@ -21,7 +21,7 @@ In your project's Gruntfile, add a section named `grunt-ssh-multi-exec` to the d
 
 ```js
 grunt.initConfig({
-  'grunt-ssh-multi-exec': {
+  'ssh-multi-exec': {
     your_target: {
       hosts: ['127.0.0.1:2222'],
       username: 'user',
