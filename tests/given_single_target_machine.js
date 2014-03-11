@@ -4,7 +4,7 @@ exports.when_executing_single_successfull_command = {
     it_should_execute_success_callback: function(test) {
         test.expect(1);
 
-        var task = require('../src/grunt-ssh-multi-exec')(require('grunt'));
+        var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
         task.call({
             target: 'echoes',
             async: function(){ return function(){}; },
@@ -30,7 +30,7 @@ exports.when_executing_single_successfull_command_using_password_authentication 
     it_should_execute_success_callback: function(test) {
         test.expect(1);
 
-        var task = require('../src/grunt-ssh-multi-exec')(require('grunt'));
+        var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
         task.call({
             target: 'echoes',
             async: function(){ return function(){}; },
@@ -56,7 +56,7 @@ exports.when_executing_multiple_successfull_commands = {
     it_should_execute_success_callback: function(test) {
         test.expect(2);
 
-        var task = require('../src/grunt-ssh-multi-exec')(require('grunt'));
+        var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
         task.call({
             target: 'echoes',
             async: function(){ return function(){}; },
@@ -88,7 +88,7 @@ exports.when_executing_single_failing_command = {
     it_should_execute_error_callback: function(test) {
         test.expect(1);
 
-        var task = require('../src/grunt-ssh-multi-exec')(require('grunt'));
+        var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
         task.call({
             target: 'echoes',
             async: function(){ return function(){}; },
@@ -114,7 +114,7 @@ exports.when_executing_multiple_successfull_commands_and_first_command_fails = {
     it_should_execute_success_callback: function(test) {
         test.expect(1);
 
-        var task = require('../src/grunt-ssh-multi-exec')(require('grunt'));
+        var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
         task.call({
             target: 'echoes',
             async: function(){ return function(){}; },

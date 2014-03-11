@@ -129,6 +129,8 @@ config: {
 ```
 
 ##Release History
+* **v2.0.0** (2014-03-11)
+ * **Breaking change!** - task renamed to `ssh-multi-exec`
 * **v1.0.0** (2014-03-10)
  * **Breaking change!** - see port configration
  * added support for executing commands against multiple boxes
