@@ -31,11 +31,11 @@ grunt.initConfig({
           input: 'uptime',
           success: function(data) {
             // optional callback
-            // 'data' contains  stdout response from the targer box
+            // 'data' contains  stdout response from the target box
           },
           error: function(err) {
             // optional callback
-            // 'err' contains  stderr response from the targer box
+            // 'err' contains  stderr response from the target box
           }
         }
       ]
