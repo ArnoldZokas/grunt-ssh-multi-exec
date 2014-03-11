@@ -35,7 +35,7 @@ grunt.initConfig({
           },
           error: function(err) {
             // optional callback
-            // 'data' contains  stderr response from the targer box
+            // 'err' contains  stderr response from the targer box
           }
         }
       ]
