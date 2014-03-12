@@ -14,8 +14,9 @@ var init = function() {
         privateKey = config.privateKey,
         password   = config.password;
 
-    var writeBufferedLog = function(host, msg) {
-        (logs[host] = logs[host] || []).push(host.cyan + msg);
+    var writeBufferedLog = function(host, msg, fn) {
+        var entry = msg ? host.cyan + fn(msg) : '';
+        (logs[host] = logs[host] || []).push(entry);
     };
 
     var flushBufferedLog = function(host) {
@@ -39,7 +40,7 @@ var init = function() {
                     success = command.success || function() {},
                     error   = command.error || function() {};
 
-                writeBufferedLog(shellPrefix, (input).yellow);
+                writeBufferedLog(shellPrefix, input, function(x) { return x.yellow });
 
                 tunnel.exec(input, function(err, stream) {
                     if (err) {
@@ -49,12 +50,11 @@ var init = function() {
                     stream.on('data', function(data, extended) {
                         data = data.toString();
                         if(extended === 'stderr') {
-                            writeBufferedLog(shellPrefix, data.red);
+                            writeBufferedLog(shellPrefix, data, function(x) { return x.red });
                             flushBufferedLog(shellPrefix);
                             lastError[shellPrefix] = data;
                             error(data);
                         } else {
-                            writeBufferedLog(shellPrefix, data.green);
                             response[shellPrefix + input] = data;
                         }
                     });
@@ -65,7 +65,9 @@ var init = function() {
                             return;
                         }
 
-                        success(response[shellPrefix + input]);
+                        var data = response[shellPrefix + input];
+                        writeBufferedLog(shellPrefix, data, function(x) { return x.green });
+                        success(data);
 
                         if(commands.length > 0) {
                             executeCommand(commands.shift());

@@ -1,6 +1,6 @@
 {
   "name": "grunt-ssh-multi-exec",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Execute a set of SSH commands against multiple boxes",
   "engines": {
     "node": "v0.10.x"
