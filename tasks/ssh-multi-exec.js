@@ -29,7 +29,9 @@ var init = function() {
             host        = target.split(':')[0],
             port        = target.split(':')[1],
             commands    = config.commands.slice(),
-            shellPrefix = (username + '@' + host + ':' + port + ' ~$ ');
+            shellPrefix = (username + '@' + host + ':' + port + ' ~$ '),
+            response    = [],
+            lastError   = [];
 
         tunnel.on('ready', function() {
             var executeCommand = function(command) {
@@ -49,18 +51,27 @@ var init = function() {
                         if(extended === 'stderr') {
                             writeBufferedLog(shellPrefix, data.red);
                             flushBufferedLog(shellPrefix);
+                            lastError[shellPrefix] = data;
                             error(data);
-                            callback(null, null);
                         } else {
                             writeBufferedLog(shellPrefix, data.green);
-                            success(data);
+                            response[shellPrefix + input] = data;
+                        }
+                    });
 
-                            if(commands.length > 0) {
-                                executeCommand(commands.shift());
-                            } else {
-                                flushBufferedLog(shellPrefix);
-                                callback(null, null);
-                            }
+                    stream.on('close', function(){
+                        if(lastError[shellPrefix]) {
+                            callback(null, null);
+                            return;
+                        }
+
+                        success(response[shellPrefix + input]);
+
+                        if(commands.length > 0) {
+                            executeCommand(commands.shift());
+                        } else {
+                            flushBufferedLog(shellPrefix);
+                            callback(null, null);
                         }
                     });
                 });

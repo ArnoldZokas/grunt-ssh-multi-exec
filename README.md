@@ -129,6 +129,8 @@ config: {
 ```
 
 ##Release History
+* **v2.1.0** (2014-03-11)
+ * fixed bug that was preventing execution of commands that do not return a response
 * **v2.0.0** (2014-03-11)
  * **Breaking change!** - task renamed to `ssh-multi-exec`
 * **v1.0.0** (2014-03-10)

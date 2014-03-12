@@ -72,9 +72,9 @@ exports.when_executing_multiple_successfull_commands = {
                         }
                     },
                     {
-                        input: 'echo 3',
+                        input: 'echo TEST > ~/test.txt',
                         success: function(data) {
-                            test.strictEqual(data, '3\n');
+                            test.strictEqual(data, undefined);
                             test.done();
                         }
                     }
