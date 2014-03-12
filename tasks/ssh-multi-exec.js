@@ -40,7 +40,7 @@ var init = function() {
                     success = command.success || function() {},
                     error   = command.error || function() {};
 
-                writeBufferedLog(shellPrefix, input, function(x) { return x.yellow });
+                writeBufferedLog(shellPrefix, input, function(x) { return x.yellow; });
 
                 tunnel.exec(input, function(err, stream) {
                     if (err) {
@@ -50,7 +50,7 @@ var init = function() {
                     stream.on('data', function(data, extended) {
                         data = data.toString();
                         if(extended === 'stderr') {
-                            writeBufferedLog(shellPrefix, data, function(x) { return x.red });
+                            writeBufferedLog(shellPrefix, data, function(x) { return x.red; });
                             flushBufferedLog(shellPrefix);
                             lastError[shellPrefix] = data;
                             error(data);
@@ -66,7 +66,7 @@ var init = function() {
                         }
 
                         var data = response[shellPrefix + input];
-                        writeBufferedLog(shellPrefix, data, function(x) { return x.green });
+                        writeBufferedLog(shellPrefix, data, function(x) { return x.green; });
                         success(data);
 
                         if(commands.length > 0) {
