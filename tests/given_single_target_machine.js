@@ -16,6 +16,7 @@ exports.when_executing_single_successfull_command = {
                     {
                         input: 'echo 1',
                         success: function(data) {
+                            console.log('SUCCESS');
                             test.strictEqual(data, '1\n');
                             test.done();
                         }
@@ -100,6 +101,7 @@ exports.when_executing_single_failing_command = {
                     {
                         input: 'batman',
                         error: function(err) {
+                            console.log('FAILURE');
                             test.strictEqual(err, 'bash: batman: command not found\n');
                             test.done();
                         }

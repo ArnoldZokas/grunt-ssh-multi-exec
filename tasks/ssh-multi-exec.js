@@ -66,12 +66,12 @@ var init = function() {
 
                         var data = response[shellPrefix + input];
                         writeBufferedLog(shellPrefix, data, function(x) { return x.green; });
+                        flushBufferedLog(shellPrefix);
                         success(data);
 
                         if(commands.length > 0) {
                             executeCommand(commands.shift());
                         } else {
-                            flushBufferedLog(shellPrefix);
                             callback(null, null);
                         }
                     });
