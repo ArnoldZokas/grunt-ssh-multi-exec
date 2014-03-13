@@ -22,6 +22,7 @@ var init = function() {
         while(logs[host].length > 0) {
             console.log(logs[host].shift());
         }
+        console.log('');
     };
 
     var executeCommandSet = function(target, callback) {
