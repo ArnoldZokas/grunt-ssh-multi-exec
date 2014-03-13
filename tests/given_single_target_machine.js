@@ -2,7 +2,7 @@
 
 exports.when_executing_single_successfull_command = {
     it_should_execute_success_callback: function(test) {
-        test.expect(1);
+        test.expect(3);
 
         var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
         task.call({
@@ -15,9 +15,11 @@ exports.when_executing_single_successfull_command = {
                 commands: [
                     {
                         input: 'echo 1',
-                        success: function(data) {
+                        success: function(data, context) {
                             console.log('SUCCESS');
                             test.strictEqual(data, '1\n');
+                            test.strictEqual(context.host, '127.0.0.1');
+                            test.strictEqual(context.port, '2222');
                             test.done();
                         }
                     }
@@ -87,7 +89,7 @@ exports.when_executing_multiple_successfull_commands = {
 
 exports.when_executing_single_failing_command = {
     it_should_execute_error_callback: function(test) {
-        test.expect(1);
+        test.expect(3);
 
         var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
         task.call({
@@ -100,9 +102,11 @@ exports.when_executing_single_failing_command = {
                 commands: [
                     {
                         input: 'batman',
-                        error: function(err) {
+                        error: function(err, context) {
                             console.log('FAILURE');
                             test.strictEqual(err, 'bash: batman: command not found\n');
+                            test.strictEqual(context.host, '127.0.0.1');
+                            test.strictEqual(context.port, '2222');
                             test.done();
                         }
                     }

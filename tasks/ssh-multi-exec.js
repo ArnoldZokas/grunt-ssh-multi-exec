@@ -52,7 +52,7 @@ var init = function() {
                             writeBufferedLog(shellPrefix, data, function(x) { return x.red; });
                             flushBufferedLog(shellPrefix);
                             lastError[shellPrefix] = data;
-                            error(data);
+                            error(data, { host: host, port: port });
                         } else {
                             response[shellPrefix + input] = data;
                         }
@@ -67,7 +67,7 @@ var init = function() {
                         var data = response[shellPrefix + input];
                         writeBufferedLog(shellPrefix, data, function(x) { return x.green; });
                         flushBufferedLog(shellPrefix);
-                        success(data);
+                        success(data, { host: host, port: port });
 
                         if(commands.length > 0) {
                             executeCommand(commands.shift());
