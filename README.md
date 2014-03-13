@@ -29,13 +29,23 @@ grunt.initConfig({
       commands: [
         {
           input: 'uptime',
-          success: function(data) {
+          success: function(data, context) {
             // optional callback
             // 'data' contains stdout response from the target box
+            // 'context' contains:
+            // {
+            //   host: '127.0.0.1'
+            //   port: '2222'
+            // }
           },
-          error: function(err) {
+          error: function(err, context) {
             // optional callback
             // 'err' contains stderr response from the target box
+            // 'context' contains:
+            // {
+            //   host: '127.0.0.1'
+            //   port: '2222'
+            // }
           }
         }
       ]
@@ -129,6 +139,8 @@ config: {
 ```
 
 ##Release History
+* **v2.3.0** (2014-03-13)
+ * added context to success and error callbacks
 * **v2.2.0** (2014-03-12)
  * fixed dependency versioning
 * **v2.1.0** (2014-03-12)
