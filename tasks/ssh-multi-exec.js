@@ -15,8 +15,7 @@ var init = function() {
         password   = config.password;
 
     var writeBufferedLog = function(host, msg, fn) {
-        var entry = msg ? host.cyan + fn(msg) : '';
-        (logs[host] = logs[host] || []).push(entry);
+        (logs[host] = logs[host] || []).push(host.cyan + fn(msg || 'OK'));
     };
 
     var flushBufferedLog = function(host) {
