@@ -2,7 +2,8 @@
 
 var fs    = require('fs'),
     async = require('async'),
-    ssh   = require('ssh2');
+    ssh   = require('ssh2'),
+    noop  = function() {};
 
 var init = function() {
     var done       = this.async(),
@@ -37,8 +38,8 @@ var init = function() {
         tunnel.on('ready', function() {
             var executeCommand = function(command) {
                 var input   = command.input.toString(),
-                    success = command.success || function() {},
-                    error   = command.error || function() {};
+                    success = command.success || noop,
+                    error   = command.error || noop;
 
                 writeBufferedLog(shellPrefix, input, function(x) { return x.yellow; });
 
@@ -105,10 +106,19 @@ var init = function() {
         }
     };
 
-    console.log(('\n\nexecuting command set "' + target + '" against hosts: ' + config.hosts).underline);
-    async.each(hosts, executeCommandSet, function(){
+    var mode = config.mode || 'parallel';
+    console.log(('\n\nexecuting command set "' + target + '" against hosts: ' + config.hosts + ' (mode: ' + mode + ')').underline);
+
+    if(mode === 'sequential') {
+        for(var i = 0; i < hosts.length; i++) {
+            executeCommandSet(hosts[i], noop);
+        }
         done();
-    });
+    } else {
+        async.each(hosts, executeCommandSet, function(){
+            done();
+        });
+    }
 };
 
 module.exports = function(grunt) {

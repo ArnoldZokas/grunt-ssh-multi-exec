@@ -116,7 +116,7 @@ exports.when_executing_single_failing_command = {
     }
 };
 
-exports.when_executing_multiple_successfull_commands_and_first_command_fails = {
+exports.when_executing_multiple_commands_and_first_command_fails = {
     it_should_execute_success_callback: function(test) {
         test.expect(1);
 
