@@ -23,7 +23,6 @@ In your project's Gruntfile, add a section named `grunt-ssh-multi-exec` to the d
 grunt.initConfig({
   'ssh-multi-exec': {
     your_target: {
-      mode: 'parallel | sequential'
       hosts: ['127.0.0.1:2222'],
       username: 'user',
       privateKey: '/path/to/private/key',
@@ -55,12 +54,27 @@ grunt.initConfig({
 });
 ```
 Commands execute sequentially, in the order specified.
-By default, command sets are executed in against all specified hosts in parallel. To execute command sets against one host at a time, set `mode` option to `sequential`.
+By default, command sets are executed in against all specified hosts in parallel. You can limit number of async command set executions by setting `maxDegreeOfParallelism`.
 
 ##Examples
 ###Single machine, single command
 ```js
 config: {
+  hosts: ['127.0.0.1:2222'],
+  username: 'user',
+  privateKey: '/path/to/private/key',
+  commands: [
+    {
+      input: 'touch me'
+    }
+  ]
+}
+```
+
+###Single machine, single command (with limited parallelism)
+```js
+config: {
+  maxDegreeOfParallelism: 1,
   hosts: ['127.0.0.1:2222'],
   username: 'user',
   privateKey: '/path/to/private/key',
@@ -141,6 +155,9 @@ config: {
 ```
 
 ##Release History
+* **v3.0.0** (2014-03-14)
+ * **Breaking change!** - remove `mode` option
+ * added `maxDegreeOfParallelism` option
 * **v2.4.0** (2014-03-14)
  * added option to execute command sets sequentially
 * **v2.3.0** (2014-03-13)

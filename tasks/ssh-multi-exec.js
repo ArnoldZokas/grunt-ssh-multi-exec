@@ -106,15 +106,13 @@ var init = function() {
         }
     };
 
-    var mode = config.mode || 'parallel';
-    console.log(('\n\nexecuting command set "' + target + '" against hosts: ' + config.hosts + ' (mode: ' + mode + ')').underline);
-
-    if(mode === 'sequential') {
-        for(var i = 0; i < hosts.length; i++) {
-            executeCommandSet(hosts[i], noop);
-        }
-        done();
+    if(config.maxDegreeOfParallelism) {
+        console.log(('\n\nexecuting command set "' + target + '" (maxDegreeOfParallelism: ' + config.maxDegreeOfParallelism + ')').underline);
+        async.eachLimit(hosts, config.maxDegreeOfParallelism, executeCommandSet, function(){
+            done();
+        });
     } else {
+        console.log(('\n\nexecuting command set "' + target + '"').underline);
         async.each(hosts, executeCommandSet, function(){
             done();
         });
