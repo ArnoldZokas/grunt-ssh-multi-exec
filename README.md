@@ -23,6 +23,7 @@ In your project's Gruntfile, add a section named `grunt-ssh-multi-exec` to the d
 grunt.initConfig({
   'ssh-multi-exec': {
     your_target: {
+      mode: 'parallel | sequential'
       hosts: ['127.0.0.1:2222'],
       username: 'user',
       privateKey: '/path/to/private/key',
@@ -53,7 +54,7 @@ grunt.initConfig({
   },
 });
 ```
-Commands execute sequentially, in the order specified.
+By default commands execute sequentially, in the order specified. This behaviour can be changed by setting `mode` option to `sequential`.
 
 ##Examples
 ###Single machine, single command
@@ -139,6 +140,8 @@ config: {
 ```
 
 ##Release History
+* **v2.4.0** (2014-03-14)
+ * added option to execute command sets sequentially
 * **v2.3.0** (2014-03-13)
  * added context to success and error callbacks
 * **v2.2.0** (2014-03-12)
