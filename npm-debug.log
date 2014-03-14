@@ -1,0 +1,419 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish',
+1 verbose cli   '-force' ]
+2 info using npm@1.3.5
+3 info using node@v0.10.15
+4 warn using --force I sure hope you know what you are doing.
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/azokas/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball /var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz
+13 verbose folder .
+14 info prepublish grunt-ssh-multi-exec@2.4.0
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /Users/azokas/.npm/1f1177db-tar.lock
+17 silly lockFile 288c4228-29315-0-4722963673993945-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz
+18 verbose lock tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz /Users/azokas/.npm/288c4228-29315-0-4722963673993945-tmp-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 288c4228-29315-0-4722963673993945-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz
+22 silly lockFile 288c4228-29315-0-4722963673993945-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz
+23 verbose tar unpack /var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz
+24 silly lockFile fc023823-29315-0-4722963673993945-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package
+25 verbose lock tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package /Users/azokas/.npm/fc023823-29315-0-4722963673993945-package.lock
+26 silly lockFile 288c4228-29315-0-4722963673993945-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz
+27 verbose lock tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz /Users/azokas/.npm/288c4228-29315-0-4722963673993945-tmp-tgz.lock
+28 silly gunzTarPerm modes [ '755', '644' ]
+29 silly gunzTarPerm extractEntry package.json
+30 silly gunzTarPerm extractEntry .npmignore
+31 silly gunzTarPerm extractEntry README.md
+32 silly gunzTarPerm extractEntry gruntfile.js
+33 silly gunzTarPerm extractEntry LICENSE.md
+34 silly gunzTarPerm extractEntry vagrant_bootstrap.sh
+35 silly gunzTarPerm extractEntry Vagrantfile
+36 silly gunzTarPerm extractEntry .idea/.name
+37 silly gunzTarPerm extractEntry .idea/encodings.xml
+38 silly gunzTarPerm extractEntry .idea/grunt-ssh-multi-exec.iml
+39 silly gunzTarPerm extractEntry .idea/jsLibraryMappings.xml
+40 silly gunzTarPerm extractEntry .idea/libraries/Node_js_Dependencies_for_grunt_ssh_multi_exec.xml
+41 silly gunzTarPerm extractEntry .idea/misc.xml
+42 silly gunzTarPerm extractEntry .idea/modules.xml
+43 silly gunzTarPerm extractEntry .idea/scopes/scope_settings.xml
+44 silly gunzTarPerm extractEntry .idea/vcs.xml
+45 silly gunzTarPerm extractEntry .jshint
+46 silly gunzTarPerm extractEntry tests/given_multiple_target_machines.js
+47 silly gunzTarPerm extractEntry tests/given_single_target_machine.js
+48 silly gunzTarPerm extractEntry .travis.yml
+49 silly gunzTarPerm extractEntry tasks/ssh-multi-exec.js
+50 silly gunzTarPerm extractEntry grunt_tasks/jshint.js
+51 silly gunzTarPerm extractEntry grunt_tasks/nodeunit.js
+52 silly gunzTarPerm extractEntry grunt_tasks/vagrant.js
+53 silly lockFile fc023823-29315-0-4722963673993945-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package
+54 silly lockFile fc023823-29315-0-4722963673993945-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package
+55 silly lockFile 288c4228-29315-0-4722963673993945-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz
+56 silly lockFile 288c4228-29315-0-4722963673993945-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/tmp.tgz
+57 verbose tar pack [ '/Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz',
+57 verbose tar pack   '/var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package' ]
+58 verbose tarball /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+59 verbose folder /var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package
+60 silly lockFile fc023823-29315-0-4722963673993945-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package
+61 verbose lock tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package /Users/azokas/.npm/fc023823-29315-0-4722963673993945-package.lock
+62 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+63 verbose lock tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz /Users/azokas/.npm/4b619897-ssh-multi-exec-2-4-0-package-tgz.lock
+64 silly lockFile fc023823-29315-0-4722963673993945-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package
+65 silly lockFile fc023823-29315-0-4722963673993945-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813729315-0.4722963673993945/package
+66 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+67 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+68 silly lockFile 705df22f-unt-ssh-multi-exec-2-4-0-package /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+69 verbose lock /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package /Users/azokas/.npm/705df22f-unt-ssh-multi-exec-2-4-0-package.lock
+70 silly lockFile 705df22f-unt-ssh-multi-exec-2-4-0-package /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+71 silly lockFile 705df22f-unt-ssh-multi-exec-2-4-0-package /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+72 verbose tar unpack /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+73 silly lockFile c40e9a09-unt-ssh-multi-exec-2-4-0-package tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+74 verbose lock tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package /Users/azokas/.npm/c40e9a09-unt-ssh-multi-exec-2-4-0-package.lock
+75 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+76 verbose lock tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz /Users/azokas/.npm/4b619897-ssh-multi-exec-2-4-0-package-tgz.lock
+77 silly gunzTarPerm modes [ '755', '644' ]
+78 silly gunzTarPerm extractEntry package.json
+79 silly gunzTarPerm extractEntry .npmignore
+80 silly gunzTarPerm extractEntry README.md
+81 silly gunzTarPerm extractEntry gruntfile.js
+82 silly gunzTarPerm extractEntry Vagrantfile
+83 silly gunzTarPerm extractEntry .idea/.name
+84 silly gunzTarPerm extractEntry .idea/encodings.xml
+85 silly gunzTarPerm extractEntry .idea/grunt-ssh-multi-exec.iml
+86 silly gunzTarPerm extractEntry .idea/jsLibraryMappings.xml
+87 silly gunzTarPerm extractEntry .idea/libraries/Node_js_Dependencies_for_grunt_ssh_multi_exec.xml
+88 silly gunzTarPerm extractEntry .idea/misc.xml
+89 silly gunzTarPerm extractEntry .idea/modules.xml
+90 silly gunzTarPerm extractEntry .idea/scopes/scope_settings.xml
+91 silly gunzTarPerm extractEntry .idea/vcs.xml
+92 silly gunzTarPerm extractEntry .jshint
+93 silly gunzTarPerm extractEntry grunt_tasks/jshint.js
+94 silly gunzTarPerm extractEntry grunt_tasks/nodeunit.js
+95 silly gunzTarPerm extractEntry grunt_tasks/vagrant.js
+96 silly gunzTarPerm extractEntry .travis.yml
+97 silly gunzTarPerm extractEntry LICENSE.md
+98 silly gunzTarPerm extractEntry tasks/ssh-multi-exec.js
+99 silly gunzTarPerm extractEntry tests/given_multiple_target_machines.js
+100 silly gunzTarPerm extractEntry tests/given_single_target_machine.js
+101 silly gunzTarPerm extractEntry vagrant_bootstrap.sh
+102 silly lockFile c40e9a09-unt-ssh-multi-exec-2-4-0-package tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+103 silly lockFile c40e9a09-unt-ssh-multi-exec-2-4-0-package tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+104 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+105 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+106 verbose chmod /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz 644
+107 verbose chown /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz [ 2071718708, 513 ]
+108 silly lockFile 3a52ce78- .
+109 silly lockFile 3a52ce78- .
+110 silly publish { name: 'grunt-ssh-multi-exec',
+110 silly publish   version: '2.4.0',
+110 silly publish   description: 'Execute a set of SSH commands against multiple boxes',
+110 silly publish   engines: { node: '0.10.15' },
+110 silly publish   main: 'gruntfile.js',
+110 silly publish   scripts: { test: 'grunt lint' },
+110 silly publish   repository:
+110 silly publish    { type: 'git',
+110 silly publish      url: 'git://github.com/ArnoldZokas/grunt-ssh-multi-exec' },
+110 silly publish   keywords: [ 'grunt', 'gruntplugin', 'ssh' ],
+110 silly publish   author: { name: 'Arnold Zokas' },
+110 silly publish   license: 'MIT',
+110 silly publish   bugs: { url: 'https://github.com/ArnoldZokas/grunt-ssh-multi-exec/issues' },
+110 silly publish   devDependencies:
+110 silly publish    { 'grunt-cli': '0.x',
+110 silly publish      grunt: '0.x',
+110 silly publish      'jshint-stylish': '0.x',
+110 silly publish      'time-grunt': '0.x',
+110 silly publish      'load-grunt-tasks': '0.3',
+110 silly publish      'grunt-contrib-jshint': '0.x',
+110 silly publish      shelljs: '0.x',
+110 silly publish      'grunt-contrib-nodeunit': '0.x' },
+110 silly publish   dependencies: { ssh2: '0.2.x', colors: '0.6.x', async: '0.2.x' },
+110 silly publish   readme: '#grunt-ssh-multi-exec [![Build Status](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec.png?branch=master)](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec)\n> Execute a set of SSH commands against multiple boxes\n\n## Getting Started\nThis plugin requires Grunt `0.4.x`\n\nIf you haven\'t used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you\'re familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-ssh-multi-exec --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-ssh-multi-exec\');\n```\n\n##Overview\nIn your project\'s Gruntfile, add a section named `grunt-ssh-multi-exec` to the data object passed into `grunt.initConfig()`.\n\n```js\ngrunt.initConfig({\n  \'ssh-multi-exec\': {\n    your_target: {\n      mode: \'parallel | sequential\'\n      hosts: [\'127.0.0.1:2222\'],\n      username: \'user\',\n      privateKey: \'/path/to/private/key\',\n      commands: [\n        {\n          input: \'uptime\',\n          success: function(data, context) {\n            // optional callback\n            // \'data\' contains stdout response from the target box\n            // \'context\' contains:\n            // {\n            //   host: \'127.0.0.1\'\n            //   port: \'2222\'\n            // }\n          },\n          error: function(err, context) {\n            // optional callback\n            // \'err\' contains stderr response from the target box\n            // \'context\' contains:\n            // {\n            //   host: \'127.0.0.1\'\n            //   port: \'2222\'\n            // }\n          }\n        }\n      ]\n    },\n  },\n});\n```\nCommands execute sequentially, in the order specified.\nBy default, command sets are executed in against all specified hosts in parallel. To execute command sets against one host at a time, set `mode` option to `sequential`.\n\n##Examples\n###Single machine, single command\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\'],\n  username: \'user\',\n  privateKey: \'/path/to/private/key\',\n  commands: [\n    {\n      input: \'touch me\'\n    }\n  ]\n}\n```\n\n###Single machine, single command (with callbacks)\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\'],\n  username: \'user\',\n  privateKey: \'/path/to/private/key\',\n  commands: [\n    {\n      input: \'touch me\',\n      success: function(data) {\n        console.log(data);\n      },\n      error: function(err) {\n        console.log(err);\n      }\n    }\n  ]\n}\n```\n\n###Password authentication\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\'],\n  username: \'user\',\n  password: \'password\',\n  commands: [\n    {\n      input: \'touch me\'\n    }\n  ]\n}\n```\n\n###Single machine, multiple commands\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\'],\n  username: \'user\',\n  privateKey: \'/path/to/private/key\',\n  commands: [\n    {\n      input: \'touch me\'\n    },\n    {\n      input: \'touch again\'\n    }\n  ]\n}\n```\n\n###Multiple machines, multiple commands\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\', \'127.0.0.1:2223\'],\n  username: \'user\',\n  privateKey: \'/path/to/private/key\',\n  commands: [\n    {\n      input: \'touch me\'\n    },\n    {\n      input: \'touch again\'\n    }\n  ]\n}\n```\n\n##Release History\n* **v2.4.0** (2014-03-14)\n * added option to execute command sets sequentially\n* **v2.3.0** (2014-03-13)\n * added context to success and error callbacks\n* **v2.2.0** (2014-03-12)\n * fixed dependency versioning\n* **v2.1.0** (2014-03-12)\n * fixed bug that was preventing execution of commands that do not return a response\n* **v2.0.0** (2014-03-11)\n * **Breaking change!** - task renamed to `ssh-multi-exec`\n* **v1.0.0** (2014-03-10)\n * **Breaking change!** - see port configration\n * added support for executing commands against multiple boxes\n * added log message batching (clean, coherent logs)\n* **v0.1.2** (2014-03-10)\n * added password-based authentication\n* **v0.1.0** (2014-03-07)\n * initial release\n\n##Contributors\n* [@matteofigus](https://github.com/matteofigus)\n* [@jankowiakmaria](https://github.com/jankowiakmaria)\n',
+110 silly publish   readmeFilename: 'README.md',
+110 silly publish   _id: 'grunt-ssh-multi-exec@2.4.0',
+110 silly publish   dist: { shasum: 'e4b6fd946eca1a4a72bf9bce43e265d0c9da90d0' },
+110 silly publish   _from: '.' }
+111 verbose url raw grunt-ssh-multi-exec
+112 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-ssh-multi-exec' ]
+113 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec
+114 info trying registry request attempt 1 at 16:15:29
+115 http PUT https://registry.npmjs.org/grunt-ssh-multi-exec
+116 http 201 https://registry.npmjs.org/grunt-ssh-multi-exec
+117 verbose url raw grunt-ssh-multi-exec
+118 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-ssh-multi-exec' ]
+119 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec
+120 info trying registry request attempt 1 at 16:15:30
+121 http GET https://registry.npmjs.org/grunt-ssh-multi-exec
+122 http 200 https://registry.npmjs.org/grunt-ssh-multi-exec
+123 warn publish Forced publish over grunt-ssh-multi-exec@2.4.0
+124 verbose url raw grunt-ssh-multi-exec
+125 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-ssh-multi-exec' ]
+126 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec
+127 info trying registry request attempt 1 at 16:15:30
+128 http GET https://registry.npmjs.org/grunt-ssh-multi-exec
+129 http 200 https://registry.npmjs.org/grunt-ssh-multi-exec
+130 silly registry.get cb [ 200,
+130 silly registry.get   { date: 'Fri, 14 Mar 2014 16:15:16 GMT',
+130 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+130 silly registry.get     etag: '"IWFEA1Q19KKKFPRICH701B18"',
+130 silly registry.get     'content-type': 'application/json',
+130 silly registry.get     'accept-ranges': 'bytes',
+130 silly registry.get     via: '1.1 varnish',
+130 silly registry.get     'cache-control': 'max-age=1',
+130 silly registry.get     'content-length': '25030',
+130 silly registry.get     'x-served-by': 'cache-v43-ASH, cache-lcy1130-LCY',
+130 silly registry.get     'x-cache': 'MISS, MISS',
+130 silly registry.get     'x-cache-hits': '0, 0',
+130 silly registry.get     'x-timer': 'S1394813716.625360966,VS0,VS6,VE29,VE100',
+130 silly registry.get     vary: 'Accept',
+130 silly registry.get     'keep-alive': 'timeout=10, max=50',
+130 silly registry.get     connection: 'Keep-Alive' } ]
+131 verbose unpublish removing attachments { shasum: 'e56763b79eea5591c7ddb8a5e0b04c10d0c5e61a',
+131 verbose unpublish   tarball: 'http://registry.npmjs.org/grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz' }
+132 verbose url raw grunt-ssh-multi-exec/-rev/57-f13b051694752bb370d424c910bd812e
+133 verbose url resolving [ 'https://registry.npmjs.org/',
+133 verbose url resolving   './grunt-ssh-multi-exec/-rev/57-f13b051694752bb370d424c910bd812e' ]
+134 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec/-rev/57-f13b051694752bb370d424c910bd812e
+135 info trying registry request attempt 1 at 16:15:30
+136 http PUT https://registry.npmjs.org/grunt-ssh-multi-exec/-rev/57-f13b051694752bb370d424c910bd812e
+137 http 201 https://registry.npmjs.org/grunt-ssh-multi-exec/-rev/57-f13b051694752bb370d424c910bd812e
+138 verbose url raw grunt-ssh-multi-exec
+139 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-ssh-multi-exec' ]
+140 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec
+141 info trying registry request attempt 1 at 16:15:30
+142 http GET https://registry.npmjs.org/grunt-ssh-multi-exec
+143 http 200 https://registry.npmjs.org/grunt-ssh-multi-exec
+144 silly registry.get cb [ 200,
+144 silly registry.get   { date: 'Fri, 14 Mar 2014 16:15:17 GMT',
+144 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+144 silly registry.get     etag: '"IWFEA1Q19KKKFPRICH701B18"',
+144 silly registry.get     'content-type': 'application/json',
+144 silly registry.get     'accept-ranges': 'bytes',
+144 silly registry.get     via: '1.1 varnish',
+144 silly registry.get     'cache-control': 'max-age=1',
+144 silly registry.get     'content-length': '25030',
+144 silly registry.get     'x-served-by': 'cache-v37-ASH, cache-lcy1129-LCY',
+144 silly registry.get     'x-cache': 'MISS, MISS',
+144 silly registry.get     'x-cache-hits': '0, 0',
+144 silly registry.get     'x-timer': 'S1394813717.011853456,VS0,VS403,VE530,VE204',
+144 silly registry.get     vary: 'Accept',
+144 silly registry.get     'keep-alive': 'timeout=10, max=50',
+144 silly registry.get     connection: 'Keep-Alive' } ]
+145 info detach /grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/57-f13b051694752bb370d424c910bd812e
+146 verbose url raw /grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/57-f13b051694752bb370d424c910bd812e
+147 verbose url resolving [ 'https://registry.npmjs.org/',
+147 verbose url resolving   './grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/57-f13b051694752bb370d424c910bd812e' ]
+148 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/57-f13b051694752bb370d424c910bd812e
+149 info trying registry request attempt 1 at 16:15:31
+150 http DELETE https://registry.npmjs.org/grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/57-f13b051694752bb370d424c910bd812e
+151 http 409 https://registry.npmjs.org/grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/57-f13b051694752bb370d424c910bd812e
+152 verbose publish [ '.' ]
+153 verbose cache add [ '.', null ]
+154 verbose cache add name=undefined spec="." args=[".",null]
+155 verbose parsed url { protocol: null,
+155 verbose parsed url   slashes: null,
+155 verbose parsed url   auth: null,
+155 verbose parsed url   host: null,
+155 verbose parsed url   port: null,
+155 verbose parsed url   hostname: null,
+155 verbose parsed url   hash: null,
+155 verbose parsed url   search: null,
+155 verbose parsed url   query: null,
+155 verbose parsed url   pathname: '.',
+155 verbose parsed url   path: '.',
+155 verbose parsed url   href: '.' }
+156 silly lockFile 3a52ce78- .
+157 verbose lock . /Users/azokas/.npm/3a52ce78-.lock
+158 verbose tar pack [ '/var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz',
+158 verbose tar pack   '.' ]
+159 verbose tarball /var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz
+160 verbose folder .
+161 info prepublish grunt-ssh-multi-exec@2.4.0
+162 silly lockFile 1f1177db-tar tar://.
+163 verbose lock tar://. /Users/azokas/.npm/1f1177db-tar.lock
+164 silly lockFile 7e2440d9-1359-0-06527399667538702-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz
+165 verbose lock tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz /Users/azokas/.npm/7e2440d9-1359-0-06527399667538702-tmp-tgz.lock
+166 silly lockFile 1f1177db-tar tar://.
+167 silly lockFile 1f1177db-tar tar://.
+168 silly lockFile 7e2440d9-1359-0-06527399667538702-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz
+169 silly lockFile 7e2440d9-1359-0-06527399667538702-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz
+170 verbose tar unpack /var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz
+171 silly lockFile d1cb26bc-1359-0-06527399667538702-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package
+172 verbose lock tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package /Users/azokas/.npm/d1cb26bc-1359-0-06527399667538702-package.lock
+173 silly lockFile 7e2440d9-1359-0-06527399667538702-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz
+174 verbose lock tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz /Users/azokas/.npm/7e2440d9-1359-0-06527399667538702-tmp-tgz.lock
+175 silly gunzTarPerm modes [ '755', '644' ]
+176 silly gunzTarPerm extractEntry package.json
+177 silly gunzTarPerm extractEntry .npmignore
+178 silly gunzTarPerm extractEntry README.md
+179 silly gunzTarPerm extractEntry gruntfile.js
+180 silly gunzTarPerm extractEntry LICENSE.md
+181 silly gunzTarPerm extractEntry vagrant_bootstrap.sh
+182 silly gunzTarPerm extractEntry Vagrantfile
+183 silly gunzTarPerm extractEntry .idea/.name
+184 silly gunzTarPerm extractEntry .idea/encodings.xml
+185 silly gunzTarPerm extractEntry .idea/grunt-ssh-multi-exec.iml
+186 silly gunzTarPerm extractEntry .idea/jsLibraryMappings.xml
+187 silly gunzTarPerm extractEntry .idea/libraries/Node_js_Dependencies_for_grunt_ssh_multi_exec.xml
+188 silly gunzTarPerm extractEntry .idea/misc.xml
+189 silly gunzTarPerm extractEntry .idea/modules.xml
+190 silly gunzTarPerm extractEntry .idea/scopes/scope_settings.xml
+191 silly gunzTarPerm extractEntry .idea/vcs.xml
+192 silly gunzTarPerm extractEntry .jshint
+193 silly gunzTarPerm extractEntry tests/given_multiple_target_machines.js
+194 silly gunzTarPerm extractEntry tests/given_single_target_machine.js
+195 silly gunzTarPerm extractEntry .travis.yml
+196 silly gunzTarPerm extractEntry tasks/ssh-multi-exec.js
+197 silly gunzTarPerm extractEntry grunt_tasks/jshint.js
+198 silly gunzTarPerm extractEntry grunt_tasks/nodeunit.js
+199 silly gunzTarPerm extractEntry grunt_tasks/vagrant.js
+200 silly lockFile d1cb26bc-1359-0-06527399667538702-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package
+201 silly lockFile d1cb26bc-1359-0-06527399667538702-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package
+202 silly lockFile 7e2440d9-1359-0-06527399667538702-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz
+203 silly lockFile 7e2440d9-1359-0-06527399667538702-tmp-tgz tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/tmp.tgz
+204 verbose tar pack [ '/Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz',
+204 verbose tar pack   '/var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package' ]
+205 verbose tarball /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+206 verbose folder /var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package
+207 silly lockFile d1cb26bc-1359-0-06527399667538702-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package
+208 verbose lock tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package /Users/azokas/.npm/d1cb26bc-1359-0-06527399667538702-package.lock
+209 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+210 verbose lock tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz /Users/azokas/.npm/4b619897-ssh-multi-exec-2-4-0-package-tgz.lock
+211 silly lockFile d1cb26bc-1359-0-06527399667538702-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package
+212 silly lockFile d1cb26bc-1359-0-06527399667538702-package tar:///var/folders/zd/xypd64_158xb5_02hmlsb74nxqqtsm/T/npm-5655-mxnLXenq/1394813731359-0.06527399667538702/package
+213 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+214 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+215 silly lockFile 705df22f-unt-ssh-multi-exec-2-4-0-package /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+216 verbose lock /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package /Users/azokas/.npm/705df22f-unt-ssh-multi-exec-2-4-0-package.lock
+217 silly lockFile 705df22f-unt-ssh-multi-exec-2-4-0-package /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+218 silly lockFile 705df22f-unt-ssh-multi-exec-2-4-0-package /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+219 verbose tar unpack /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+220 silly lockFile c40e9a09-unt-ssh-multi-exec-2-4-0-package tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+221 verbose lock tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package /Users/azokas/.npm/c40e9a09-unt-ssh-multi-exec-2-4-0-package.lock
+222 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+223 verbose lock tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz /Users/azokas/.npm/4b619897-ssh-multi-exec-2-4-0-package-tgz.lock
+224 silly gunzTarPerm modes [ '755', '644' ]
+225 silly gunzTarPerm extractEntry package.json
+226 silly gunzTarPerm extractEntry .npmignore
+227 silly gunzTarPerm extractEntry README.md
+228 silly gunzTarPerm extractEntry gruntfile.js
+229 silly gunzTarPerm extractEntry Vagrantfile
+230 silly gunzTarPerm extractEntry .idea/.name
+231 silly gunzTarPerm extractEntry .idea/encodings.xml
+232 silly gunzTarPerm extractEntry .idea/grunt-ssh-multi-exec.iml
+233 silly gunzTarPerm extractEntry .idea/jsLibraryMappings.xml
+234 silly gunzTarPerm extractEntry .idea/libraries/Node_js_Dependencies_for_grunt_ssh_multi_exec.xml
+235 silly gunzTarPerm extractEntry .idea/misc.xml
+236 silly gunzTarPerm extractEntry .idea/modules.xml
+237 silly gunzTarPerm extractEntry .idea/scopes/scope_settings.xml
+238 silly gunzTarPerm extractEntry .idea/vcs.xml
+239 silly gunzTarPerm extractEntry .jshint
+240 silly gunzTarPerm extractEntry grunt_tasks/jshint.js
+241 silly gunzTarPerm extractEntry grunt_tasks/nodeunit.js
+242 silly gunzTarPerm extractEntry grunt_tasks/vagrant.js
+243 silly gunzTarPerm extractEntry .travis.yml
+244 silly gunzTarPerm extractEntry LICENSE.md
+245 silly gunzTarPerm extractEntry tasks/ssh-multi-exec.js
+246 silly gunzTarPerm extractEntry tests/given_multiple_target_machines.js
+247 silly gunzTarPerm extractEntry tests/given_single_target_machine.js
+248 silly gunzTarPerm extractEntry vagrant_bootstrap.sh
+249 silly lockFile c40e9a09-unt-ssh-multi-exec-2-4-0-package tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+250 silly lockFile c40e9a09-unt-ssh-multi-exec-2-4-0-package tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package
+251 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+252 silly lockFile 4b619897-ssh-multi-exec-2-4-0-package-tgz tar:///Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz
+253 verbose chmod /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz 644
+254 verbose chown /Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz [ 2071718708, 513 ]
+255 silly lockFile 3a52ce78- .
+256 silly lockFile 3a52ce78- .
+257 silly publish { name: 'grunt-ssh-multi-exec',
+257 silly publish   version: '2.4.0',
+257 silly publish   description: 'Execute a set of SSH commands against multiple boxes',
+257 silly publish   engines: { node: '0.10.15' },
+257 silly publish   main: 'gruntfile.js',
+257 silly publish   scripts: { test: 'grunt lint' },
+257 silly publish   repository:
+257 silly publish    { type: 'git',
+257 silly publish      url: 'git://github.com/ArnoldZokas/grunt-ssh-multi-exec' },
+257 silly publish   keywords: [ 'grunt', 'gruntplugin', 'ssh' ],
+257 silly publish   author: { name: 'Arnold Zokas' },
+257 silly publish   license: 'MIT',
+257 silly publish   bugs: { url: 'https://github.com/ArnoldZokas/grunt-ssh-multi-exec/issues' },
+257 silly publish   devDependencies:
+257 silly publish    { 'grunt-cli': '0.x',
+257 silly publish      grunt: '0.x',
+257 silly publish      'jshint-stylish': '0.x',
+257 silly publish      'time-grunt': '0.x',
+257 silly publish      'load-grunt-tasks': '0.3',
+257 silly publish      'grunt-contrib-jshint': '0.x',
+257 silly publish      shelljs: '0.x',
+257 silly publish      'grunt-contrib-nodeunit': '0.x' },
+257 silly publish   dependencies: { ssh2: '0.2.x', colors: '0.6.x', async: '0.2.x' },
+257 silly publish   readme: '#grunt-ssh-multi-exec [![Build Status](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec.png?branch=master)](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec)\n> Execute a set of SSH commands against multiple boxes\n\n## Getting Started\nThis plugin requires Grunt `0.4.x`\n\nIf you haven\'t used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you\'re familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-ssh-multi-exec --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-ssh-multi-exec\');\n```\n\n##Overview\nIn your project\'s Gruntfile, add a section named `grunt-ssh-multi-exec` to the data object passed into `grunt.initConfig()`.\n\n```js\ngrunt.initConfig({\n  \'ssh-multi-exec\': {\n    your_target: {\n      mode: \'parallel | sequential\'\n      hosts: [\'127.0.0.1:2222\'],\n      username: \'user\',\n      privateKey: \'/path/to/private/key\',\n      commands: [\n        {\n          input: \'uptime\',\n          success: function(data, context) {\n            // optional callback\n            // \'data\' contains stdout response from the target box\n            // \'context\' contains:\n            // {\n            //   host: \'127.0.0.1\'\n            //   port: \'2222\'\n            // }\n          },\n          error: function(err, context) {\n            // optional callback\n            // \'err\' contains stderr response from the target box\n            // \'context\' contains:\n            // {\n            //   host: \'127.0.0.1\'\n            //   port: \'2222\'\n            // }\n          }\n        }\n      ]\n    },\n  },\n});\n```\nCommands execute sequentially, in the order specified.\nBy default, command sets are executed in against all specified hosts in parallel. To execute command sets against one host at a time, set `mode` option to `sequential`.\n\n##Examples\n###Single machine, single command\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\'],\n  username: \'user\',\n  privateKey: \'/path/to/private/key\',\n  commands: [\n    {\n      input: \'touch me\'\n    }\n  ]\n}\n```\n\n###Single machine, single command (with callbacks)\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\'],\n  username: \'user\',\n  privateKey: \'/path/to/private/key\',\n  commands: [\n    {\n      input: \'touch me\',\n      success: function(data) {\n        console.log(data);\n      },\n      error: function(err) {\n        console.log(err);\n      }\n    }\n  ]\n}\n```\n\n###Password authentication\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\'],\n  username: \'user\',\n  password: \'password\',\n  commands: [\n    {\n      input: \'touch me\'\n    }\n  ]\n}\n```\n\n###Single machine, multiple commands\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\'],\n  username: \'user\',\n  privateKey: \'/path/to/private/key\',\n  commands: [\n    {\n      input: \'touch me\'\n    },\n    {\n      input: \'touch again\'\n    }\n  ]\n}\n```\n\n###Multiple machines, multiple commands\n```js\nconfig: {\n  hosts: [\'127.0.0.1:2222\', \'127.0.0.1:2223\'],\n  username: \'user\',\n  privateKey: \'/path/to/private/key\',\n  commands: [\n    {\n      input: \'touch me\'\n    },\n    {\n      input: \'touch again\'\n    }\n  ]\n}\n```\n\n##Release History\n* **v2.4.0** (2014-03-14)\n * added option to execute command sets sequentially\n* **v2.3.0** (2014-03-13)\n * added context to success and error callbacks\n* **v2.2.0** (2014-03-12)\n * fixed dependency versioning\n* **v2.1.0** (2014-03-12)\n * fixed bug that was preventing execution of commands that do not return a response\n* **v2.0.0** (2014-03-11)\n * **Breaking change!** - task renamed to `ssh-multi-exec`\n* **v1.0.0** (2014-03-10)\n * **Breaking change!** - see port configration\n * added support for executing commands against multiple boxes\n * added log message batching (clean, coherent logs)\n* **v0.1.2** (2014-03-10)\n * added password-based authentication\n* **v0.1.0** (2014-03-07)\n * initial release\n\n##Contributors\n* [@matteofigus](https://github.com/matteofigus)\n* [@jankowiakmaria](https://github.com/jankowiakmaria)\n',
+257 silly publish   readmeFilename: 'README.md',
+257 silly publish   _id: 'grunt-ssh-multi-exec@2.4.0',
+257 silly publish   dist:
+257 silly publish    { shasum: '0e3742c64c1ccac57f3d9d57290042ed40cf7696',
+257 silly publish      tarball: 'http://registry.npmjs.org/grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz' },
+257 silly publish   _from: '.',
+257 silly publish   _npmVersion: '1.3.5',
+257 silly publish   _npmUser: { name: 'arnoldzokas', email: 'arnold.zokas@coderoom.net' } }
+258 verbose url raw grunt-ssh-multi-exec
+259 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-ssh-multi-exec' ]
+260 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec
+261 info trying registry request attempt 1 at 16:15:31
+262 http PUT https://registry.npmjs.org/grunt-ssh-multi-exec
+263 http 201 https://registry.npmjs.org/grunt-ssh-multi-exec
+264 verbose url raw grunt-ssh-multi-exec
+265 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-ssh-multi-exec' ]
+266 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec
+267 info trying registry request attempt 1 at 16:15:31
+268 http GET https://registry.npmjs.org/grunt-ssh-multi-exec
+269 http 200 https://registry.npmjs.org/grunt-ssh-multi-exec
+270 verbose uploading [ 'grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/58-ba2e0f84016b9f218ab6d78517b4a823',
+270 verbose uploading   '/Users/azokas/.npm/grunt-ssh-multi-exec/2.4.0/package.tgz' ]
+271 verbose url raw grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/58-ba2e0f84016b9f218ab6d78517b4a823
+272 verbose url resolving [ 'https://registry.npmjs.org/',
+272 verbose url resolving   './grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/58-ba2e0f84016b9f218ab6d78517b4a823' ]
+273 verbose url resolved https://registry.npmjs.org/grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/58-ba2e0f84016b9f218ab6d78517b4a823
+274 info trying registry request attempt 1 at 16:15:32
+275 http PUT https://registry.npmjs.org/grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/58-ba2e0f84016b9f218ab6d78517b4a823
+276 http 409 https://registry.npmjs.org/grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/58-ba2e0f84016b9f218ab6d78517b4a823
+277 error Error: conflict Document update conflict.: grunt-ssh-multi-exec/-/grunt-ssh-multi-exec-2.4.0.tgz/-rev/57-f13b051694752bb370d424c910bd812e
+277 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:272:14)
+277 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/index.js:148:22)
+277 error     at Request.EventEmitter.emit (events.js:98:17)
+277 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/index.js:876:14)
+277 error     at Request.EventEmitter.emit (events.js:117:20)
+277 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/index.js:827:12)
+277 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+277 error     at _stream_readable.js:910:16
+277 error     at process._tickCallback (node.js:415:13)
+278 error If you need help, you may report this log at:
+278 error     <http://github.com/isaacs/npm/issues>
+278 error or email it to:
+278 error     <npm-@googlegroups.com>
+279 error System Darwin 13.0.0
+280 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "-force"
+281 error cwd /Users/azokas/Documents/Projects/grunt-ssh-multi-exec
+282 error node -v v0.10.15
+283 error npm -v 1.3.5
+284 verbose exit [ 1, true ]

@@ -54,7 +54,8 @@ grunt.initConfig({
   },
 });
 ```
-By default commands execute sequentially, in the order specified. This behaviour can be changed by setting `mode` option to `sequential`.
+Commands execute sequentially, in the order specified.
+By default, command sets are executed in against all specified hosts in parallel. To execute command sets against one host at a time, set `mode` option to `sequential`.
 
 ##Examples
 ###Single machine, single command
