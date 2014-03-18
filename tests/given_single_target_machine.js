@@ -14,6 +14,7 @@ exports.when_executing_single_successfull_command = {
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
                 commands: [
                     {
+                        hint: 'this is a test',
                         input: 'echo 1',
                         success: function(data, context) {
                             console.log('SUCCESS');

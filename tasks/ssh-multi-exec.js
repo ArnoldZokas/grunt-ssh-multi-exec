@@ -37,10 +37,15 @@ var init = function() {
 
         tunnel.on('ready', function() {
             var executeCommand = function(command) {
-                var input   = command.input.toString(),
+                var hint    = command.hint,
+                    input   = command.input.toString(),
                     success = command.success || noop,
                     error   = command.error || noop,
                     force   = command.force || false;
+
+                if(hint) {
+                    writeBufferedLog(shellPrefix, '# ' + hint, function(x) { return x.grey; });
+                }
 
                 writeBufferedLog(shellPrefix, input, function(x) { return x.yellow; });
 
