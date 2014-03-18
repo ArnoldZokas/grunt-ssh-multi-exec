@@ -53,8 +53,8 @@ grunt.initConfig({
   },
 });
 ```
-Commands execute sequentially, in the order specified.
-By default, command sets are executed in against all specified hosts in parallel. You can limit number of async command set executions by setting `maxDegreeOfParallelism`.
+Commands are executed sequentially, in the specified order.<br />
+Command sets are executed against all specified hosts in parallel. You can control the number of parallel executions by setting `maxDegreeOfParallelism`.
 
 ##Examples
 ###Single machine, single command
@@ -137,6 +137,30 @@ config: {
 }
 ```
 
+###Single machine, multiple commands (with `force` option)
+```js
+config: {
+  hosts: ['127.0.0.1:2222'],
+  username: 'user',
+  privateKey: '/path/to/private/key',
+  commands: [
+    {
+      input: 'this will fail',
+      force: true,
+      error: function(err) {
+        console.log(err);
+      }
+    },
+    {
+      input: 'touch again',
+      success: function() {
+        console.log('but the show goes on...');
+      }
+    }
+  ]
+}
+```
+
 ###Multiple machines, multiple commands
 ```js
 config: {
@@ -155,6 +179,8 @@ config: {
 ```
 
 ##Release History
+* **v3.1.0** (2014-03-18)
+ * added `force` option
 * **v3.0.0** (2014-03-14)
  * **Breaking change!** - remove `mode` option
  * added `maxDegreeOfParallelism` option

@@ -33,13 +33,14 @@ var init = function() {
             commands    = config.commands.slice(),
             shellPrefix = (username + '@' + host + ':' + port + ' ~$ '),
             response    = [],
-            lastError   = [];
+            lastError   = null;
 
         tunnel.on('ready', function() {
             var executeCommand = function(command) {
                 var input   = command.input.toString(),
                     success = command.success || noop,
-                    error   = command.error || noop;
+                    error   = command.error || noop,
+                    force   = command.force || false;
 
                 writeBufferedLog(shellPrefix, input, function(x) { return x.yellow; });
 
@@ -51,25 +52,30 @@ var init = function() {
                     stream.on('data', function(data, extended) {
                         data = data.toString();
                         if(extended === 'stderr') {
-                            writeBufferedLog(shellPrefix, data, function(x) { return x.red; });
-                            flushBufferedLog(shellPrefix);
-                            lastError[shellPrefix] = data;
-                            error(data, { host: host, port: port });
+                            lastError = data;
                         } else {
+                            lastError = null;
                             response[shellPrefix + input] = data;
                         }
                     });
 
                     stream.on('close', function(){
-                        if(lastError[shellPrefix]) {
-                            callback(null, null);
-                            return;
-                        }
+                        if(lastError) {
+                            writeBufferedLog(shellPrefix, lastError, function(x) { return x.red; });
+                            flushBufferedLog(shellPrefix);
+                            error(lastError, { host: host, port: port });
 
-                        var data = response[shellPrefix + input];
-                        writeBufferedLog(shellPrefix, data, function(x) { return x.green; });
-                        flushBufferedLog(shellPrefix);
-                        success(data, { host: host, port: port });
+                            if(force === false) {
+                                callback(null, null);
+                                return;
+                            }
+                        }
+                        else {
+                            var data = response[shellPrefix + input];
+                            writeBufferedLog(shellPrefix, data, function(x) { return x.green; });
+                            flushBufferedLog(shellPrefix);
+                            success(data, { host: host, port: port });
+                        }
 
                         if(commands.length > 0) {
                             executeCommand(commands.shift());

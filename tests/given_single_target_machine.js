@@ -144,3 +144,35 @@ exports.when_executing_multiple_commands_and_first_command_fails = {
         });
     }
 };
+
+exports.when_executing_multiple_commands_and_first_command_with_force_flag_fails = {
+    it_should_execute_success_callback: function(test) {
+        test.expect(1);
+
+        var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
+        task.call({
+            target: 'echoes',
+            async: function(){ return function(){}; },
+            data: {
+                hosts: ['127.0.0.1:2222'],
+                username: 'vagrant',
+                privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
+                commands: [
+                    {
+                        input: 'batman',
+                        force: true,
+                        error: function(err) {
+                            test.strictEqual(err, 'bash: batman: command not found\n');
+                        }
+                    },
+                    {
+                        input: 'echo 1',
+                        success: function() {
+                            test.done();
+                        }
+                    }
+                ]
+            }
+        });
+    }
+};
