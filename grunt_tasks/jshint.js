@@ -1,6 +1,6 @@
 var task = {
     options: {
-        jshintrc: '.jshint',
+        jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
     },
     all: ['*.js', 'tasks/**/*.js', 'grunt_tasks/*.js', 'tests/**/*.js']
