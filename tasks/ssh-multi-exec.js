@@ -44,7 +44,7 @@ var init = function() {
                     force   = command.force || false;
 
                 if(hint) {
-                    writeBufferedLog(shellPrefix, '# ' + hint, function(x) { return x.grey; });
+                    writeBufferedLog(shellPrefix, '# ' + hint + (force ? ' (force)' : ''), function(x) { return x.grey; });
                 }
 
                 writeBufferedLog(shellPrefix, input, function(x) { return x.yellow; });
