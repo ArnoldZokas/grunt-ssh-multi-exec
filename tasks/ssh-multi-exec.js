@@ -54,12 +54,13 @@ var init = function() {
                         throw err;
                     }
 
+                    lastError = null;
+
                     stream.on('data', function(data, extended) {
                         data = data.toString();
                         if(extended === 'stderr') {
                             lastError = data;
                         } else {
-                            lastError = null;
                             response[shellPrefix + input] = data;
                         }
                     });
