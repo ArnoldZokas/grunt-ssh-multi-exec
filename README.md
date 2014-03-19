@@ -179,6 +179,8 @@ config: {
 ```
 
 ##Release History
+* **v3.1.1** (2014-03-19)
+ * fixed a `force` option bug that was preventing execution of subsequent commands in some scenarios
 * **v3.1.0** (2014-03-18)
  * added `force` option
 * **v3.0.0** (2014-03-14)
