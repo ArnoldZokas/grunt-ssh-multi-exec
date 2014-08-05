@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "description": "Execute a set of SSH commands against multiple boxes",
   "engines": {
-    "node": "0.10.15"
+    "node": "0.10.28"
   },
   "main": "gruntfile.js",
   "scripts": {
@@ -23,19 +23,19 @@
   "bugs": {
     "url": "https://github.com/ArnoldZokas/grunt-ssh-multi-exec/issues"
   },
-  "devDependencies": {
-    "grunt-cli": "0.x",
-    "grunt": "0.x",
-    "jshint-stylish": "0.x",
-    "time-grunt": "0.x",
-    "load-grunt-tasks": "0.3",
-    "grunt-contrib-jshint": "0.x",
-    "shelljs": "0.x",
-    "grunt-contrib-nodeunit": "0.x"
-  },
   "dependencies": {
-    "ssh2": "0.2.x",
-    "colors": "0.6.x",
-    "async": "0.2.x"
+    "async": "0.9.0",
+    "colors": "0.6.2",
+    "ssh2": "0.2.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-nodeunit": "0.4.1",
+    "jshint-stylish": "0.4.0",
+    "load-grunt-tasks": "0.6",
+    "shelljs": "0.3.0",
+    "time-grunt": "0.4.0"
   }
 }
