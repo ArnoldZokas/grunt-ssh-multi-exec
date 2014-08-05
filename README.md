@@ -185,6 +185,10 @@ config: {
 ```
 
 ##Release History
+* **v4.0.0** (2014-08-05)
+ * made callback behaviour more deterministic (to allow long-running operations to block further ssh command execution)
+ * updated dependencies
+ * updated to ssh2 v0.3.4 (hopefully, this will put an end to internal ssh2 errors we've been seeing)
 * **v3.1.1** (2014-03-19)
  * fixed a `force` option bug that was preventing execution of subsequent commands in some scenarios
 * **v3.1.0** (2014-03-18)
