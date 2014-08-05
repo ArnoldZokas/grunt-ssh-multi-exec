@@ -185,6 +185,8 @@ config: {
 ```
 
 ##Release History
+* **v4.0.1** (2014-08-05)
+ * fixing noop behaviour
 * **v4.0.0** (2014-08-05)
  * made callback behaviour more deterministic (to allow long-running operations to block further ssh command execution)
  * updated dependencies
