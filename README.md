@@ -29,7 +29,7 @@ grunt.initConfig({
       commands: [
         {
           input: 'uptime',
-          success: function(data, context) {
+          success: function(data, context, done) {
             // optional callback
             // 'data' contains stdout response from the target box
             // 'context' contains:
@@ -37,8 +37,9 @@ grunt.initConfig({
             //   host: '127.0.0.1'
             //   port: '2222'
             // }
+            done();
           },
-          error: function(err, context) {
+          error: function(err, context, done) {
             // optional callback
             // 'err' contains stderr response from the target box
             // 'context' contains:
@@ -46,6 +47,7 @@ grunt.initConfig({
             //   host: '127.0.0.1'
             //   port: '2222'
             // }
+            done();
           }
         }
       ]
@@ -95,11 +97,13 @@ config: {
   commands: [
     {
       input: 'touch me',
-      success: function(data) {
+      success: function(data, context, done) {
         console.log(data);
+        done();
       },
-      error: function(err) {
+      error: function(err, context, done) {
         console.log(err);
+        done();
       }
     }
   ]
@@ -147,14 +151,16 @@ config: {
     {
       input: 'this will fail',
       force: true,
-      error: function(err) {
+      error: function(err, context, done) {
         console.log(err);
+        done();
       }
     },
     {
       input: 'touch again',
-      success: function() {
+      success: function(data, context, done) {
         console.log('but the show goes on...');
+        done();
       }
     }
   ]
