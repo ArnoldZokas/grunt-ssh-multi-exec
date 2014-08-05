@@ -25,8 +25,9 @@ exports.when_executing_single_successfull_command = {
                 commands: [
                     {
                         input: 'echo 1',
-                        success: function(data) {
+                        success: function(data, context, done) {
                             test.strictEqual(data, '1\n');
+                            done();
                         }
                     }
                 ]
@@ -53,8 +54,9 @@ exports.when_executing_single_successfull_command_with_iterator_limit = {
                 commands: [
                     {
                         input: 'echo 1',
-                        success: function(data) {
+                        success: function(data, context, done) {
                             test.strictEqual(data, '1\n');
+                            done();
                         }
                     }
                 ]
@@ -80,14 +82,16 @@ exports.when_executing_multiple_successfull_commands = {
                 commands: [
                     {
                         input: 'echo 2',
-                        success: function(data) {
+                        success: function(data, context, done) {
                             test.strictEqual(data, '2\n');
+                            done();
                         }
                     },
                     {
                         input: 'echo TEST > ~/test.txt',
-                        success: function(data) {
+                        success: function(data, context, done) {
                             test.strictEqual(data, undefined);
+                            done();
                         }
                     }
                 ]
@@ -113,8 +117,9 @@ exports.when_executing_multiple_commands_and_first_command_fails = {
                 commands: [
                     {
                         input: 'batman',
-                        error: function(err) {
+                        error: function(err, context, done) {
                             test.strictEqual(err, 'bash: batman: command not found\n');
+                            done();
                         }
                     },
                     {
@@ -144,8 +149,9 @@ exports.when_executing_multiple_commands_with_iterator_limit_and_first_command_f
                 commands: [
                     {
                         input: 'batman',
-                        error: function(err) {
+                        error: function(err, context, done) {
                             test.strictEqual(err, 'bash: batman: command not found\n');
+                            done();
                         }
                     },
                     {

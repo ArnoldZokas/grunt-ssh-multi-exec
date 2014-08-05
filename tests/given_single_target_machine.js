@@ -16,12 +16,13 @@ exports.when_executing_single_successfull_command = {
                     {
                         hint: 'this is a test',
                         input: 'echo 1',
-                        success: function(data, context) {
+                        success: function(data, context, done) {
                             console.log('SUCCESS');
                             test.strictEqual(data, '1\n');
                             test.strictEqual(context.host, '127.0.0.1');
                             test.strictEqual(context.port, '2222');
                             test.done();
+                            done();
                         }
                     }
                 ]
@@ -45,9 +46,10 @@ exports.when_executing_single_successfull_command_using_password_authentication 
                 commands: [
                     {
                         input: 'echo 1',
-                        success: function(data) {
+                        success: function(data, context, done) {
                             test.strictEqual(data, '1\n');
                             test.done();
+                            done();
                         }
                     }
                 ]
@@ -71,15 +73,17 @@ exports.when_executing_multiple_successfull_commands = {
                 commands: [
                     {
                         input: 'echo 2',
-                        success: function(data) {
+                        success: function(data, context, done) {
                             test.strictEqual(data, '2\n');
+                            done();
                         }
                     },
                     {
                         input: 'echo TEST > ~/test.txt',
-                        success: function(data) {
+                        success: function(data, context, done) {
                             test.strictEqual(data, undefined);
                             test.done();
+                            done();
                         }
                     }
                 ]
@@ -103,12 +107,13 @@ exports.when_executing_single_failing_command = {
                 commands: [
                     {
                         input: 'batman',
-                        error: function(err, context) {
+                        error: function(err, context, done) {
                             console.log('FAILURE');
                             test.strictEqual(err, 'bash: batman: command not found\n');
                             test.strictEqual(context.host, '127.0.0.1');
                             test.strictEqual(context.port, '2222');
                             test.done();
+                            done();
                         }
                     }
                 ]
@@ -132,9 +137,10 @@ exports.when_executing_multiple_commands_and_first_command_fails = {
                 commands: [
                     {
                         input: 'batman',
-                        error: function(err) {
+                        error: function(err, context, done) {
                             test.strictEqual(err, 'bash: batman: command not found\n');
                             test.done();
+                            done();
                         }
                     },
                     {
@@ -162,14 +168,16 @@ exports.when_executing_multiple_commands_and_first_command_with_force_flag_fails
                     {
                         input: 'batman',
                         force: true,
-                        error: function(err) {
+                        error: function(err, context, done) {
                             test.strictEqual(err, 'bash: batman: command not found\n');
+                            done();
                         }
                     },
                     {
                         input: 'echo 1',
-                        success: function() {
+                        success: function(data, context, done) {
                             test.done();
+                            done();
                         }
                     }
                 ]
