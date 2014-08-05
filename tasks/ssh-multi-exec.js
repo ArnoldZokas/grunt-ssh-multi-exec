@@ -3,7 +3,7 @@
 var fs    = require('fs'),
     async = require('async'),
     ssh   = require('ssh2'),
-    noop  = function() {};
+    noop  = function(_, __, done) { done(); };
 
 var init = function() {
     var done       = this.async(),
