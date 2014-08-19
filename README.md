@@ -1,7 +1,7 @@
 #grunt-ssh-multi-exec [![Build Status](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec.png?branch=master)](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec) [![NPM version](https://badge.fury.io/js/grunt-ssh-multi-exec.png)](http://badge.fury.io/js/grunt-ssh-multi-exec)
 > Execute a set of SSH commands against multiple boxes
 
-[![NPM](https://nodei.co/npm/grunt-ssh-multi-exec.png?downloads=true&stars=true)](https://nodei.co/npm/node-cache/)
+[![NPM](https://nodei.co/npm/grunt-ssh-multi-exec.png?downloads=true&stars=true)](https://nodei.co/npm/grunt-ssh-multi-exec)
 
 ## Getting Started
 This plugin requires Grunt `0.4.x`
