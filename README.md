@@ -189,6 +189,8 @@ config: {
 ```
 
 ##Release History
+* **v4.0.3** (2014-08-31)
+ * fixing error noop behaviour
 * **v4.0.2** (2014-08-31)
  * fixing error noop behaviour
 * **v4.0.1** (2014-08-05)
