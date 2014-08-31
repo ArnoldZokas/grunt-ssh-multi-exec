@@ -38,8 +38,8 @@ grunt.initConfig({
             // 'data' contains stdout response from the target box
             // 'context' contains:
             // {
-            //   host: '127.0.0.1'
-            //   port: '2222'
+            //   'host': '127.0.0.1',
+            //   'port': '2222'
             // }
             done();
           },
@@ -48,8 +48,9 @@ grunt.initConfig({
             // 'err' contains stderr response from the target box
             // 'context' contains:
             // {
-            //   host: '127.0.0.1'
-            //   port: '2222'
+            //   'host': '127.0.0.1',
+            //   'port': '2222',
+            //   'force': false
             // }
             done();
           }
