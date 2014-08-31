@@ -3,7 +3,7 @@
 var fs    = require('fs'),
     async = require('async'),
     ssh   = require('ssh2'),
-    noop  = function(_, __, done) { done(); };
+    grunt = require('grunt');
 
 var init = function() {
     var done       = this.async(),
@@ -39,8 +39,8 @@ var init = function() {
             var executeCommand = function(command) {
                 var hint    = command.hint,
                     input   = command.input.toString(),
-                    success = command.success || noop,
-                    error   = command.error || noop,
+                    success = command.success || function(_, __, done) { done(); },
+                    error   = command.error || function(err) { grunt.fail.fatal(err); },
                     force   = command.force || false;
 
                 if(hint) {
