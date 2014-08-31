@@ -15,6 +15,13 @@ var init = function() {
         privateKey = config.privateKey,
         password   = config.password;
 
+    var defaultErrorHandler = function(error, context, done) {
+        if(!context.force) {
+            grunt.fail.fatal(error);
+        }
+        done();
+    };
+
     var writeBufferedLog = function(host, msg, fn) {
         (logs[host] = logs[host] || []).push(host.cyan + fn(msg || 'OK'));
     };
@@ -40,7 +47,7 @@ var init = function() {
                 var hint    = command.hint,
                     input   = command.input.toString(),
                     success = command.success || function(_, __, done) { done(); },
-                    error   = command.error || function(err) { grunt.fail.fatal(err); },
+                    error   = command.error || defaultErrorHandler,
                     force   = command.force || false;
 
                 if(hint) {
@@ -76,7 +83,7 @@ var init = function() {
                         if(lastError) {
                             writeBufferedLog(shellPrefix, lastError, function(x) { return x.red; });
                             flushBufferedLog(shellPrefix);
-                            error(lastError, { host: host, port: port }, function() {
+                            error(lastError, { host: host, port: port, force: force }, function() {
                                 if(force === false) {
                                     callback(null, null);
                                     return;
