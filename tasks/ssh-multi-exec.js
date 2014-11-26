@@ -68,7 +68,7 @@ var init = function() {
                     });
 
                     stream.stderr.on('data', function(data) {
-                        if(data != null) {
+                        if(data !== null) {
                             if(lastError === null) {
                                 lastError = data.toString();
                             } else {
