@@ -190,12 +190,14 @@ config: {
 ```
 
 ##Release History
+* **v4.0.4** (2014-11-26)
+ * fixed error reporting
 * **v4.0.3** (2014-08-31)
- * fixing error noop behaviour
+ * fixed error noop behaviour
 * **v4.0.2** (2014-08-31)
- * fixing error noop behaviour
+ * fixed error noop behaviour
 * **v4.0.1** (2014-08-05)
- * fixing noop behaviour
+ * fixed noop behaviour
 * **v4.0.0** (2014-08-05)
  * made callback behaviour more deterministic (to allow long-running operations to block further ssh command execution)
  * updated dependencies

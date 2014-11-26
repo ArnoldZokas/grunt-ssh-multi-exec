@@ -68,7 +68,13 @@ var init = function() {
                     });
 
                     stream.stderr.on('data', function(data) {
-                        lastError = data.toString();
+                        if(data != null) {
+                            if(lastError === null) {
+                                lastError = data.toString();
+                            } else {
+                                lastError += data.toString();
+                            }
+                        }
                     });
 
                     stream.on('close', function(){
