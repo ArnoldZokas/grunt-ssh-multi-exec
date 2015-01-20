@@ -129,6 +129,21 @@ config: {
 }
 ```
 
+###Private key with passphrase
+```js
+config: {
+  hosts: ['127.0.0.1:2222'],
+  username: 'user',
+  privateKey: '/path/to/private/key',
+  passphrase: 'passphrase',
+  commands: [
+    {
+      input: 'touch me'
+    }
+  ]
+}
+```
+
 ###Single machine, multiple commands
 ```js
 config: {
