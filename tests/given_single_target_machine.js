@@ -58,6 +58,34 @@ exports.when_executing_single_successfull_command_using_password_authentication 
     }
 };
 
+exports.when_executing_single_successfull_command_using_passphrase_protected_private_key = {
+    it_should_execute_success_callback: function(test) {
+        test.expect(1);
+
+        var task = require('./../tasks/ssh-multi-exec')(require('grunt'));
+        task.call({
+            target: 'echoes',
+            async: function(){ return function(){}; },
+            data: {
+                hosts: ['127.0.0.1:2222'],
+                username: 'test',
+                privateKey: './tests/test',
+                passphrase: 'this.is.a.test',
+                commands: [
+                    {
+                        input: 'echo passphrase',
+                        success: function(data, context, done) {
+                            test.strictEqual(data, 'passphrase\n');
+                            test.done();
+                            done();
+                        }
+                    }
+                ]
+            }
+        });
+    }
+};
+
 exports.when_executing_multiple_successfull_commands = {
     it_should_execute_success_callback: function(test) {
         test.expect(2);

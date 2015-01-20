@@ -13,7 +13,8 @@ var init = function() {
         hosts      = config.hosts,
         username   = config.username,
         privateKey = config.privateKey,
-        password   = config.password;
+        password   = config.password,
+        passphrase = config.passphrase;
 
     var defaultErrorHandler = function(error, context, done) {
         if(!context.force) {
@@ -124,7 +125,8 @@ var init = function() {
                 host: host,
                 port: port,
                 username: username,
-                privateKey: fs.readFileSync(privateKey)
+                privateKey: fs.readFileSync(privateKey),
+                passphrase: passphrase
             });
         } else {
             tunnel.connect({
