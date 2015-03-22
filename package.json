@@ -26,16 +26,16 @@
   "dependencies": {
     "async": "0.9.0",
     "colors": "1.0.3",
-    "ssh2": "0.3.6"
+    "ssh2": "0.4.4"
   },
   "devDependencies": {
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
-    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-jshint": "0.11.1",
     "grunt-contrib-nodeunit": "0.4.1",
-    "jshint-stylish": "1.0.0",
-    "load-grunt-tasks": "2.0",
-    "shelljs": "0.3.0",
-    "time-grunt": "1.0.0"
+    "jshint-stylish": "1.0.1",
+    "load-grunt-tasks": "3.1",
+    "shelljs": "0.4.0",
+    "time-grunt": "1.1.0"
   }
 }
