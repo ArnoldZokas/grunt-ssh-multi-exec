@@ -7,7 +7,7 @@
   },
   "main": "gruntfile.js",
   "scripts": {
-    "test": "grunt lint"
+    "test": "grunt && grunt test"
   },
   "repository": {
     "type": "git",

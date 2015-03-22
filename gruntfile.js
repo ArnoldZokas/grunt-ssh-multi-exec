@@ -22,8 +22,7 @@ module.exports = function (grunt) {
 	require('time-grunt')(grunt);
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask('default', ['lint']);
-	grunt.registerTask('lint', ['jshint:all']);
-	grunt.registerTask('test', ['nodeunit']);
-	grunt.registerTask('acceptance', ['vagrant-up', 'nodeunit','vagrant-destroy']);
+	grunt.registerTask('default', ['build']);
+	grunt.registerTask('build', ['jshint:all']);
+	grunt.registerTask('test', ['vagrant-up', 'nodeunit']);
 };
