@@ -20,7 +20,7 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-ssh-multi-exec');
 ```
 
-##Overview
+## Overview
 In your project's Gruntfile, add a section named `grunt-ssh-multi-exec` to the data object passed into `grunt.initConfig()`.
 
 ```js
@@ -43,8 +43,8 @@ grunt.initConfig({
 });
 ```
 
-##Authentication Options
-###Password
+## Authentication Options
+### Password
 ```js
 grunt.initConfig({
   'ssh-multi-exec': {
@@ -62,7 +62,7 @@ grunt.initConfig({
 });
 ```
 
-###Private Key
+### Private Key
 ```js
 grunt.initConfig({
   'ssh-multi-exec': {
@@ -82,7 +82,7 @@ grunt.initConfig({
 ```
 
 ## Additional Options
-###Limited Parallelism
+### Limited Parallelism
 By default, this module will execute commands against all specified hosts all at once.<br />
 Setting `maxDegreeOfParallelism` will split available hosts into multiple batches; each batch no greated than the specified number. In this example, hosts will be split into two batches with two hosts per batch:
 ```js
@@ -103,7 +103,7 @@ grunt.initConfig({
 });
 ```
 
-###Forced Execution
+### Forced Execution
 In some scenarios it is useful to be able to continue execution of a command set despite failures.<br />
 A boolean `force` flag applied at command level allows you to mark individual commands for forced execution.<br />
 In this example, second command will execute even though first had failed:
@@ -155,7 +155,7 @@ grunt.initConfig({
 });
 ```
 
-##Release History
+## Release History
 * **v4.2.0** (2015-03-23)
  * updated dependencies
 * **v4.1.0** (2015-01-20)
