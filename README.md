@@ -84,7 +84,7 @@ grunt.initConfig({
 ## Additional Options
 ### Limited Parallelism
 By default, this module will execute commands against all specified hosts all at once.<br />
-Setting `maxDegreeOfParallelism` will split available hosts into multiple batches; each batch no greated than the specified number. In this example, hosts will be split into two batches with two hosts per batch:
+Setting `maxDegreeOfParallelism` will split available hosts into multiple batches; each batch no greater than the specified number. In this example, hosts will be split into two batches with two hosts per batch:
 ```js
 grunt.initConfig({
   'ssh-multi-exec': {
@@ -190,7 +190,7 @@ grunt.initConfig({
 * **v2.0.0** (2014-03-11)
  * **Breaking change!** - task renamed to `ssh-multi-exec`
 * **v1.0.0** (2014-03-10)
- * **Breaking change!** - see port configration
+ * **Breaking change!** - see port configuration
  * added support for executing commands against multiple boxes
  * added log message batching (clean, coherent logs)
 * **v0.1.2** (2014-03-10)
