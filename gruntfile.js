@@ -24,5 +24,4 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', ['build']);
 	grunt.registerTask('build', ['jshint:all']);
-	grunt.registerTask('test', ['vagrant-up', 'nodeunit']);
 };

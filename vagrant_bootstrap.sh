@@ -5,5 +5,5 @@ useradd test --create-home -s /bin/bash
 echo "test:test"|chpasswd
 
 mkdir /home/test/.ssh
-cat /vagrant/tests/test.pub >> /home/test/.ssh/authorized_keys
+cat /vagrant/test/test.pub >> /home/test/.ssh/authorized_keys
 reload ssh

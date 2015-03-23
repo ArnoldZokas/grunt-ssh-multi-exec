@@ -18,5 +18,12 @@
   "strict": true,
   "trailing": true,
   "maxdepth": 4,
-  "node": true
+  "node": true,
+  "globals"   : {
+    /* MOCHA */
+    "describe"   : false,
+    "it"         : false,
+    "before"     : false,
+    "after"     : false
+  }
 }
