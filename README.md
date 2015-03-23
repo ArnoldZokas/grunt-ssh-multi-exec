@@ -82,10 +82,9 @@ grunt.initConfig({
 ```
 
 ## Additional Options
-###Limited parallelism
+###Limited Parallelism
 By default, this module will execute commands against all specified hosts all at once.<br />
-Setting `maxDegreeOfParallelism` will split available hosts into multiple batches; each batch no greated than the specified number.<br />
-In this example, hosts will be split into two batched - 2x hosts per batch:
+Setting `maxDegreeOfParallelism` will split available hosts into multiple batches; each batch no greated than the specified number. In this example, hosts will be split into two batches with two hosts per batch:
 ```js
 grunt.initConfig({
   'ssh-multi-exec': {
@@ -104,7 +103,7 @@ grunt.initConfig({
 });
 ```
 
-###Forced execution
+###Forced Execution
 In some scenarios it is useful to be able to continue execution of a command set despite failures.<br />
 A boolean `force` flag applied at command level allows you to mark individual commands for forced execution.<br />
 In this example, second command will execute even though first had failed:
@@ -129,7 +128,7 @@ grunt.initConfig({
 });
 ```
 
-### Success and error handlers
+### Success and Error Handlers
 Optional `success` and `error` handlers can be defined at individual command level to handle additional tasks such as logging or cleanup:
 ```js
 grunt.initConfig({
