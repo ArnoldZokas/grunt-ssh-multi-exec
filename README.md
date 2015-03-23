@@ -11,7 +11,7 @@ This plugin requires Grunt `0.4.x`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-ssh-multi-exec --save-dev
+npm i grunt-ssh-multi-exec --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -26,182 +26,134 @@ In your project's Gruntfile, add a section named `grunt-ssh-multi-exec` to the d
 ```js
 grunt.initConfig({
   'ssh-multi-exec': {
-    your_target: {
-      hosts: ['127.0.0.1:2222'],
+    echo: {
+      hosts: ['192.168.1.64:22', '192.168.1.65:22'],
       username: 'user',
-      privateKey: '/path/to/private/key',
+      password: '********',
       commands: [
         {
-          input: 'uptime',
+          input: 'echo 1'
+        },
+        {
+          input: 'echo 2'
+        }
+      ]
+    }
+  }
+});
+```
+
+##Authentication Options
+###Password
+```js
+grunt.initConfig({
+  'ssh-multi-exec': {
+    echo: {
+      hosts: ['127.0.0.1:22'],
+      username: 'user',
+      password: '********',
+      commands: [
+        {
+          input: 'echo 1'
+        }
+      ]
+    }
+  }
+});
+```
+
+###Private Key
+```js
+grunt.initConfig({
+  'ssh-multi-exec': {
+    echo: {
+      hosts: ['127.0.0.1:22'],
+      username: 'user',
+      privateKey: '/path/to/private/key',
+      passphrase: 'passphrase', // optional
+      commands: [
+        {
+          input: 'echo 1'
+        }
+      ]
+    }
+  }
+});
+```
+
+## Additional Options
+###Limited parallelism
+By default, this module will execute commands against all specified hosts all at once.<br />
+Setting `maxDegreeOfParallelism` will split available hosts into multiple batches; each batch no greated than the specified number.<br />
+In this example, hosts will be split into two batched - 2x hosts per batch:
+```js
+grunt.initConfig({
+  'ssh-multi-exec': {
+    echo: {
+      hosts: ['192.168.1.64:22', '192.168.1.65:22', '192.168.1.66:22', '192.168.1.67:22'],
+      maxDegreeOfParallelism: 2
+      username: 'user',
+      password: '********',
+      commands: [
+        {
+          input: 'echo 1'
+        }
+      ]
+    }
+  }
+});
+```
+
+###Forced execution
+In some scenarios it is useful to be able to continue execution of a command set despite failures.<br />
+A boolean `force` flag applied at command level allows you to mark individual commands for forced execution.<br />
+In this example, second command will execute even though first had failed:
+```js
+grunt.initConfig({
+  'ssh-multi-exec': {
+    echo: {
+      hosts: ['127.0.0.1:22'],
+      username: 'user',
+      password: '********',
+      commands: [
+        {
+          input: '/etc/init.d/my_svc stop',
+          force: true
+        },
+        {
+          input: 'rm -rf /var/www/my_svc'
+        }
+      ]
+    }
+  }
+});
+```
+
+### Success and error handlers
+Optional `success` and `error` handlers can be defined at individual command level to handle additional tasks such as logging or cleanup:
+```js
+grunt.initConfig({
+  'ssh-multi-exec': {
+    echo: {
+      hosts: ['127.0.0.1:22'],
+      username: 'user',
+      password: '********',
+      commands: [
+        {
+          input: 'touch me',
           success: function(data, context, done) {
-            // optional callback
-            // 'data' contains stdout response from the target box
-            // 'context' contains:
-            // {
-            //   'host': '127.0.0.1',
-            //   'port': '2222'
-            // }
+            console.log(data);
             done();
           },
           error: function(err, context, done) {
-            // optional callback
-            // 'err' contains stderr response from the target box
-            // 'context' contains:
-            // {
-            //   'host': '127.0.0.1',
-            //   'port': '2222',
-            //   'force': false
-            // }
+            console.log(err);
             done();
           }
         }
       ]
-    },
-  },
+    }
+  }
 });
-```
-Commands are executed sequentially, in the specified order.<br />
-Command sets are executed against all specified hosts in parallel. You can control the number of parallel executions by setting `maxDegreeOfParallelism`.
-
-##Examples
-###Single machine, single command
-```js
-config: {
-  hosts: ['127.0.0.1:2222'],
-  username: 'user',
-  privateKey: '/path/to/private/key',
-  commands: [
-    {
-      input: 'touch me'
-    }
-  ]
-}
-```
-
-###Single machine, single command (with limited parallelism)
-```js
-config: {
-  maxDegreeOfParallelism: 1,
-  hosts: ['127.0.0.1:2222'],
-  username: 'user',
-  privateKey: '/path/to/private/key',
-  commands: [
-    {
-      input: 'touch me'
-    }
-  ]
-}
-```
-
-###Single machine, single command (with callbacks)
-```js
-config: {
-  hosts: ['127.0.0.1:2222'],
-  username: 'user',
-  privateKey: '/path/to/private/key',
-  commands: [
-    {
-      input: 'touch me',
-      success: function(data, context, done) {
-        console.log(data);
-        done();
-      },
-      error: function(err, context, done) {
-        console.log(err);
-        done();
-      }
-    }
-  ]
-}
-```
-
-###Password authentication
-```js
-config: {
-  hosts: ['127.0.0.1:2222'],
-  username: 'user',
-  password: 'password',
-  commands: [
-    {
-      input: 'touch me'
-    }
-  ]
-}
-```
-
-###Private key with passphrase
-```js
-config: {
-  hosts: ['127.0.0.1:2222'],
-  username: 'user',
-  privateKey: '/path/to/private/key',
-  passphrase: 'passphrase',
-  commands: [
-    {
-      input: 'touch me'
-    }
-  ]
-}
-```
-
-###Single machine, multiple commands
-```js
-config: {
-  hosts: ['127.0.0.1:2222'],
-  username: 'user',
-  privateKey: '/path/to/private/key',
-  commands: [
-    {
-      input: 'touch me'
-    },
-    {
-      input: 'touch again'
-    }
-  ]
-}
-```
-
-###Single machine, multiple commands (with `force` option)
-```js
-config: {
-  hosts: ['127.0.0.1:2222'],
-  username: 'user',
-  privateKey: '/path/to/private/key',
-  commands: [
-    {
-      input: 'this will fail',
-      force: true,
-      error: function(err, context, done) {
-        console.log(err);
-        done();
-      }
-    },
-    {
-      input: 'touch again',
-      success: function(data, context, done) {
-        console.log('but the show goes on...');
-        done();
-      }
-    }
-  ]
-}
-```
-
-###Multiple machines, multiple commands
-```js
-config: {
-  hosts: ['127.0.0.1:2222', '127.0.0.1:2223'],
-  username: 'user',
-  privateKey: '/path/to/private/key',
-  commands: [
-    {
-      input: 'touch me'
-    },
-    {
-      input: 'touch again'
-    }
-  ]
-}
 ```
 
 ##Release History
