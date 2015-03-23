@@ -1,7 +1,7 @@
 #grunt-ssh-multi-exec
 > Execute a set of SSH commands against multiple boxes
 
-[![Build Status](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec.svg?branch=master)](https://travis-ci.org/ArnoldZokas/grunt-ssh-multi-exec) [![Dependency Status](https://david-dm.org/ArnoldZokas/grunt-ssh-multi-exec.svg)](https://david-dm.org/ArnoldZokas/grunt-ssh-multi-exec) [![NPM version](https://badge.fury.io/js/grunt-ssh-multi-exec.svg)](http://badge.fury.io/js/grunt-ssh-multi-exec)
+[![Build Status](https://semaphoreci.com/api/v1/projects/32a3b1ae-251c-48d1-ba91-9cd3106f7135/380458/badge.png)](https://semaphoreci.com/ArnoldZokas/grunt-ssh-multi-exec)[![Dependency Status](https://david-dm.org/ArnoldZokas/grunt-ssh-multi-exec.svg)](https://david-dm.org/ArnoldZokas/grunt-ssh-multi-exec) [![NPM version](https://badge.fury.io/js/grunt-ssh-multi-exec.svg)](http://badge.fury.io/js/grunt-ssh-multi-exec)
 
 [![NPM](https://nodei.co/npm/grunt-ssh-multi-exec.png?downloads=true&stars=true)](https://nodei.co/npm/grunt-ssh-multi-exec)
 
