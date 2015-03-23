@@ -205,6 +205,8 @@ config: {
 ```
 
 ##Release History
+* **v4.2.0** (2015-03-23)
+ * updated dependencies
 * **v4.1.0** (2015-01-20)
  * added `passphrase` option
 * **v4.0.4** (2014-11-26)
