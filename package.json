@@ -3,7 +3,7 @@
   "version": "4.1.0",
   "description": "Execute a set of SSH commands against multiple boxes",
   "engines": {
-    "node": "0.10.35"
+    "node": "0.12.0"
   },
   "main": "gruntfile.js",
   "scripts": {
