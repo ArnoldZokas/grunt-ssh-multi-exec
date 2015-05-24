@@ -115,7 +115,7 @@ var init = function() {
         });
 
         tunnel.on('error', function(err) {
-            writeBufferedLog(shellPrefix, 'Connection error: ' + err.red);
+            writeBufferedLog(shellPrefix, 'Connection error: ' + err.message.red, function(msg) {return msg;});
             flushBufferedLog(shellPrefix);
             done();
         });
