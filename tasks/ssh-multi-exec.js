@@ -14,7 +14,8 @@ var init = function() {
         username   = config.username,
         privateKey = config.privateKey,
         password   = config.password,
-        passphrase = config.passphrase;
+        passphrase = config.passphrase,
+        agent      = config.agent;
 
     var defaultErrorHandler = function(error, context, done) {
         if(!context.force) {
@@ -120,7 +121,7 @@ var init = function() {
             done();
         });
 
-        if(privateKey) {
+        if (privateKey) {
             tunnel.connect({
                 host: host,
                 port: port,
@@ -128,13 +129,22 @@ var init = function() {
                 privateKey: fs.readFileSync(privateKey),
                 passphrase: passphrase
             });
-        } else {
+        } else if (password) {
             tunnel.connect({
                 host: host,
                 port: port,
                 username: username,
                 password: password
             });
+        } else if (agent) {
+            tunnel.connect({
+                host: host,
+                port: port,
+                username: username,
+                agent: agent
+            });
+        } else {
+            console.log('No means to authenticate. Please specify one of password, privateKey or agent.');
         }
     };
 
