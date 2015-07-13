@@ -23,6 +23,7 @@ describe('multiple targets (happy path)', function() {
                 hosts: ['127.0.0.1:2222', '127.0.0.1:2223'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint',
@@ -49,6 +50,7 @@ describe('multiple targets (happy path)', function() {
                 hosts: ['127.0.0.1:2222', '127.0.0.1:2223'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -85,6 +87,7 @@ describe('multiple targets (happy path)', function() {
                 hosts: ['127.0.0.1:2222', '127.0.0.1:2223'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -118,6 +121,7 @@ describe('multiple targets (happy path)', function() {
                 hosts: ['127.0.0.1:2222', '127.0.0.1:2223'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -155,6 +159,7 @@ describe('multiple targets (happy path)', function() {
                 hosts: ['127.0.0.1:2222', '127.0.0.1:2223'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',

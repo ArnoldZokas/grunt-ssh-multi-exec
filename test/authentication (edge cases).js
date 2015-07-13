@@ -12,6 +12,7 @@ describe.skip('authentication (edge cases)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'BAD_USERNAME',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -32,6 +33,7 @@ describe.skip('authentication (edge cases)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'BAD_PASSWORD',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -52,6 +54,7 @@ describe.skip('authentication (edge cases)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'BAD_USERNAME',
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -72,6 +75,7 @@ describe.skip('authentication (edge cases)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'vagrant',
                 privateKey: '/dev/null',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -93,6 +97,7 @@ describe.skip('authentication (edge cases)', function() {
                 username: 'BAD_USERNAME',
                 privateKey: './test/test',
                 passphrase: 'this.is.a.test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -114,6 +119,7 @@ describe.skip('authentication (edge cases)', function() {
                 username: 'test',
                 privateKey: '/dev/null',
                 passphrase: 'this.is.a.test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -135,6 +141,7 @@ describe.skip('authentication (edge cases)', function() {
                 username: 'test',
                 privateKey: './test/test',
                 passphrase: 'BAD_PASSPHRASE',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',

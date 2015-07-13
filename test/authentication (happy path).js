@@ -12,6 +12,7 @@ describe('authentication (happy path)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -32,6 +33,7 @@ describe('authentication (happy path)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'vagrant',
                 privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -53,6 +55,7 @@ describe('authentication (happy path)', function() {
                 username: 'test',
                 privateKey: './test/test',
                 passphrase: 'this.is.a.test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',

@@ -24,6 +24,7 @@ describe('multiple targets (restricted parallelism)', function() {
                 maxDegreeOfParallelism: 1,
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint',
@@ -52,6 +53,7 @@ describe('multiple targets (restricted parallelism)', function() {
                 maxDegreeOfParallelism: 1,
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -90,6 +92,7 @@ describe('multiple targets (restricted parallelism)', function() {
                 maxDegreeOfParallelism: 1,
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -125,6 +128,7 @@ describe('multiple targets (restricted parallelism)', function() {
                 maxDegreeOfParallelism: 1,
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -164,6 +168,7 @@ describe('multiple targets (restricted parallelism)', function() {
                 maxDegreeOfParallelism: 1,
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',

@@ -14,7 +14,8 @@ var init = function() {
         username   = config.username,
         privateKey = config.privateKey,
         password   = config.password,
-        passphrase = config.passphrase;
+        passphrase = config.passphrase,
+        logFn      = config.logFn || console.log;
 
     var defaultErrorHandler = function(error, context, done) {
         if(!context.force) {
@@ -29,9 +30,9 @@ var init = function() {
 
     var flushBufferedLog = function(host) {
         while(logs[host].length > 0) {
-            console.log(logs[host].shift());
+            logFn(logs[host].shift());
         }
-        console.log('');
+        logFn('');
     };
 
     var executeCommandSet = function(target, callback) {
@@ -139,12 +140,12 @@ var init = function() {
     };
 
     if(config.maxDegreeOfParallelism) {
-        console.log(('\n\nexecuting command set "' + target + '" (maxDegreeOfParallelism: ' + config.maxDegreeOfParallelism + ')').underline);
+        logFn(('\n\nexecuting command set "' + target + '" (maxDegreeOfParallelism: ' + config.maxDegreeOfParallelism + ')').underline);
         async.eachLimit(hosts, config.maxDegreeOfParallelism, executeCommandSet, function(){
             done();
         });
     } else {
-        console.log(('\n\nexecuting command set "' + target + '"').underline);
+        logFn(('\n\nexecuting command set "' + target + '"').underline);
         async.each(hosts, executeCommandSet, function(){
             done();
         });

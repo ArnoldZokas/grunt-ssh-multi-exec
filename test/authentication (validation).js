@@ -12,6 +12,7 @@ describe.skip('authentication (validation)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: null,
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -32,6 +33,7 @@ describe.skip('authentication (validation)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: null,
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -52,6 +54,7 @@ describe.skip('authentication (validation)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'vagrant',
                 privateKey: null,
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -73,6 +76,7 @@ describe.skip('authentication (validation)', function() {
                 username: 'test',
                 privateKey: './test/test',
                 passphrase: null,
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',

@@ -12,6 +12,7 @@ describe.skip('single target (validation)', function() {
                 hosts: null,
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -32,6 +33,7 @@ describe.skip('single target (validation)', function() {
                 hosts: [],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -52,6 +54,7 @@ describe.skip('single target (validation)', function() {
                 hosts: [''],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         input: 'echo 1',
@@ -72,6 +75,7 @@ describe.skip('single target (validation)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: null
             }
         });
@@ -85,6 +89,7 @@ describe.skip('single target (validation)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: []
             }
         });
@@ -98,6 +103,7 @@ describe.skip('single target (validation)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         input: null,

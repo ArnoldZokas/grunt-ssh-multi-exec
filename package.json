@@ -7,7 +7,7 @@
   },
   "main": "gruntfile.js",
   "scripts": {
-    "test": "grunt && vagrant up && mocha --reporter spec --timeout 5s"
+    "test": "grunt && vagrant up && mocha --reporter spec --timeout 10s"
   },
   "repository": {
     "type": "git",

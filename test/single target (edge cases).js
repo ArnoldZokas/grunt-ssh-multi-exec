@@ -13,6 +13,7 @@ describe.skip('single target (edge cases)', function() {
                 hosts: ['127.0.0.1:1234'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint',

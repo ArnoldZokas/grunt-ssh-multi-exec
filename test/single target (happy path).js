@@ -13,6 +13,7 @@ describe('single target (happy path)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint',
@@ -37,6 +38,7 @@ describe('single target (happy path)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint',
@@ -61,6 +63,7 @@ describe('single target (happy path)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -95,6 +98,7 @@ describe('single target (happy path)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -126,6 +130,7 @@ describe('single target (happy path)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
@@ -161,6 +166,7 @@ describe('single target (happy path)', function() {
                 hosts: ['127.0.0.1:2222'],
                 username: 'test',
                 password: 'test',
+                logFn: noop,
                 commands: [
                     {
                         hint: 'hint 1',
