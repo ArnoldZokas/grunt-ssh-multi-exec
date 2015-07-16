@@ -6,40 +6,56 @@ var joi   = require('joi'),
     ssh   = require('ssh2'),
     grunt = require('grunt');
 
+var logs = [],
+    logFn;
+
+var defaultErrorHandler = function(error, context, done) {
+    if(!context.force) {
+        grunt.fail.fatal(error);
+    }
+    done();
+};
+
+var writeBufferedLog = function(host, msg, fn) {
+    (logs[host] = logs[host] || []).push(host.cyan + fn(msg || 'OK'));
+};
+
+var flushBufferedLog = function(host) {
+    while(logs[host].length > 0) {
+        logFn(logs[host].shift());
+    }
+    logFn('');
+};
+
 var init = function() {
     var done       = this.async(),
-        logs       = [],
         target     = this.target,
         config     = this.data,
         hosts      = config.hosts,
         username   = config.username,
         privateKey = config.privateKey,
         password   = config.password,
-        passphrase = config.passphrase,
-        logFn      = config.logFn || console.log;
+        passphrase = config.passphrase;
+
+    logFn = config.logFn || console.log;
 
     var taskOptionValidationResult = joi.validate(config, require('./schema').task);
     if(taskOptionValidationResult.error) {
         return grunt.fail.fatal(taskOptionValidationResult.error);
     }
 
-    var defaultErrorHandler = function(error, context, done) {
-        if(!context.force) {
-            grunt.fail.fatal(error);
+    var exit = false;
+    config.commands.forEach(function(command) {
+        var commandParameterValidationResult = joi.validate(command, require('./schema').command);
+        if(commandParameterValidationResult.error) {
+            exit = true;
+            return grunt.fail.fatal(commandParameterValidationResult.error);
         }
-        done();
-    };
+    });
 
-    var writeBufferedLog = function(host, msg, fn) {
-        (logs[host] = logs[host] || []).push(host.cyan + fn(msg || 'OK'));
-    };
-
-    var flushBufferedLog = function(host) {
-        while(logs[host].length > 0) {
-            logFn(logs[host].shift());
-        }
-        logFn('');
-    };
+    if (exit) {
+        return;
+    }
 
     var executeCommandSet = function(target, callback) {
         var tunnel      = new ssh(),

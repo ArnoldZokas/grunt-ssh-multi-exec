@@ -5,7 +5,7 @@ var expect = require('expect.js'),
     noop   = function(){ return function(){}; },
     task   = require('./../tasks/ssh-multi-exec')(require('grunt'));
 
-describe.only('task option validation', function() {
+describe('task option validation', function() {
     describe('hosts', function() {
         describe('given undefined', function() {
             it('should return validation error', function(next) {
@@ -93,6 +93,34 @@ describe.only('task option validation', function() {
                     target: 'test',
                     data: {
                         hosts: [''],
+                        username: 'test',
+                        password: 'test',
+                        logFn: noop,
+                        commands: [
+                            {
+                                input: 'echo 1'
+                            }
+                        ]
+                    }
+                });
+            });
+        });
+    });
+
+    describe('maxDegreeOfParallelism', function() {
+        describe('given non-numeric', function() {
+            it('should return validation error', function(next) {
+                grunt.fail.fatal = function(error) {
+                    expect(error.message).to.equal('child "maxDegreeOfParallelism" fails because ["maxDegreeOfParallelism" must be a number]');
+                    next();
+                };
+
+                task.call({
+                    async: noop,
+                    target: 'test',
+                    data: {
+                        hosts: ['127.0.0.1:2222'],
+                        maxDegreeOfParallelism: 'INVALID',
                         username: 'test',
                         password: 'test',
                         logFn: noop,
@@ -409,7 +437,7 @@ describe.only('task option validation', function() {
         describe('given empty array element', function() {
             it('should return validation error', function(next) {
                 grunt.fail.fatal = function(error) {
-                    expect(error.message).to.equal('child "commands" fails because ["commands" at position 0 fails because ["0" must be a string]]');
+                    expect(error.message).to.equal('child "commands" fails because ["commands" at position 0 fails because ["0" must be an object]]');
                     next();
                 };
 
