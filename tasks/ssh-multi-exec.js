@@ -1,6 +1,7 @@
 'use strict';
 
-var fs    = require('fs'),
+var joi   = require('joi'),
+    fs    = require('fs'),
     async = require('async'),
     ssh   = require('ssh2'),
     grunt = require('grunt');
@@ -16,6 +17,11 @@ var init = function() {
         password   = config.password,
         passphrase = config.passphrase,
         logFn      = config.logFn || console.log;
+
+    var taskOptionValidationResult = joi.validate(config, require('./schema').task);
+    if(taskOptionValidationResult.error) {
+        return grunt.fail.fatal(taskOptionValidationResult.error);
+    }
 
     var defaultErrorHandler = function(error, context, done) {
         if(!context.force) {
