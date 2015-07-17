@@ -13,12 +13,12 @@ var defaultErrorHandler = function(error, context, done) {
 };
 
 var init = function() {
-    var next       = this.async(),
-        target     = this.target,
-        config     = this.data,
-        username   = config.username,
-        logger     = require('./logger')(config.logFn || console.log),
-        validator  = require('./validator');
+    var next      = this.async(),
+        target    = this.target,
+        config    = this.data,
+        username  = config.username,
+        logger    = require('./logger')(config.logFn || console.log),
+        validator = require('./validator');
 
     if(validator.isValid(config) === false) {
         return;
