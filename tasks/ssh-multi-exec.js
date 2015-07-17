@@ -18,8 +18,8 @@ var init = function() {
         target    = this.target,
         config    = this.data,
         username  = config.username,
-        logger    = require('./logger')(config.logFn || console.log),
-        validator = require('./validator');
+        logger    = require('../lib/logger')(config.logFn || console.log),
+        validator = require('../lib/validator');
 
     if(validator.isValid(config) === false) {
         return;
