@@ -3,23 +3,22 @@
 var async  = require('async'),
     colors = require('colors/safe'),
     fs     = require('fs'),
-    grunt  = require('grunt'),
     ssh    = require('ssh2');
 
 var defaultErrorHandler = function(error, context, done) {
     if(!context.force) {
-        grunt.fail.fatal(error);
+        require('grunt').fail.fatal(error);
     }
     done();
 };
 
 var init = function() {
-    var next      = this.async(),
-        target    = this.target,
-        config    = this.data,
-        username  = config.username,
-        logger    = require('../lib/logger')(config.logFn || console.log),
-        validator = require('../lib/validator');
+    var next     = this.async(),
+        config   = this.data,
+        username = config.username,
+        logger   = require('../lib/logger')(config.logFn || console.log);
+
+    var validator = require('../lib/validator');
 
     if(validator.isValid(config) === false) {
         return;
@@ -69,8 +68,8 @@ var init = function() {
                         }
                     });
 
-                    stream.on('close', function(){
-                        var next = function() {
+                    stream.on('close', function() {
+                        var nextCommand = function() {
                             if(commands.length > 0) {
                                 executeCommand(commands.shift());
                             } else {
@@ -87,7 +86,7 @@ var init = function() {
                                     return;
                                 }
 
-                                next();
+                                nextCommand();
                             });
                         }
                         else {
@@ -95,7 +94,7 @@ var init = function() {
                             logger.write(shellPrefix, data, function(x) { return colors.green(x); });
                             logger.flush(shellPrefix);
                             success(data, { host: host, port: port }, function() {
-                                next();
+                                nextCommand();
                             });
                         }
                     });
@@ -129,8 +128,8 @@ var init = function() {
                                 privateKey: privateKey,
                                 passphrase: config.passphrase
                             });
-                        } catch(error) {
-                            logger.write(shellPrefix, 'Connection error: ' + colors.red(error), function(x) { return x; });
+                        } catch(connectError) {
+                            logger.write(shellPrefix, 'Connection error: ' + colors.red(connectError), function(x) { return x; });
                             logger.flush(shellPrefix);
                             next();
                         }
@@ -152,12 +151,12 @@ var init = function() {
     };
 
     if(config.maxDegreeOfParallelism) {
-        logger.write('', colors.underline('\n\nexecuting command set "' + target + '" (maxDegreeOfParallelism: ' + config.maxDegreeOfParallelism + ')'), function(x) { return x; });
+        logger.write('', colors.underline('\n\nexecuting command set "' + this.target + '" (maxDegreeOfParallelism: ' + config.maxDegreeOfParallelism + ')'), function(x) { return x; });
         async.eachLimit(config.hosts, config.maxDegreeOfParallelism, executeCommandSet, function() {
             next();
         });
     } else {
-        logger.write('', colors.underline('\n\nexecuting command set "' + target + '"'), function(x) { return x; });
+        logger.write('', colors.underline('\n\nexecuting command set "' + this.target + '"'), function(x) { return x; });
         async.each(config.hosts, executeCommandSet, function() {
             next();
         });

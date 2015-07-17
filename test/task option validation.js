@@ -1,9 +1,10 @@
 'use strict';
 
 var expect = require('expect.js'),
-    grunt  = require('grunt'),
-    noop   = function(){ return function(){}; },
-    task   = require('./../tasks/ssh-multi-exec')(require('grunt'));
+    grunt  = require('grunt');
+
+var noop = function() { return function() {}; },
+    task = require('./../tasks/ssh-multi-exec')(require('grunt'));
 
 describe('task option validation', function() {
     describe('hosts', function() {

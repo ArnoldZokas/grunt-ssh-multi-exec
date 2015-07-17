@@ -1,8 +1,9 @@
 'use strict';
 
-var expect = require('expect.js'),
-    noop   = function(){ return function(){}; },
-    task   = require('./../tasks/ssh-multi-exec')(require('grunt'));
+var expect = require('expect.js');
+
+var noop = function() { return function() {}; },
+    task = require('./../tasks/ssh-multi-exec')(require('grunt'));
 
 describe('authentication', function() {
     describe('password', function() {
