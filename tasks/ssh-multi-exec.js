@@ -1,10 +1,9 @@
 'use strict';
 
-var joi   = require('joi'),
+var async = require('async'),
     fs    = require('fs'),
-    async = require('async'),
-    ssh   = require('ssh2'),
-    grunt = require('grunt');
+    grunt = require('grunt'),
+    ssh   = require('ssh2');
 
 var defaultErrorHandler = function(error, context, done) {
     if(!context.force) {
@@ -22,23 +21,10 @@ var init = function() {
         privateKey = config.privateKey,
         password   = config.password,
         passphrase = config.passphrase,
-        logger     = require('./logger')(config.logFn || console.log);
+        logger     = require('./logger')(config.logFn || console.log),
+        validator  = require('./validator');
 
-    var taskOptionValidationResult = joi.validate(config, require('./schema').task);
-    if(taskOptionValidationResult.error) {
-        return grunt.fail.fatal(taskOptionValidationResult.error);
-    }
-
-    var exit = false;
-    config.commands.forEach(function(command) {
-        var commandParameterValidationResult = joi.validate(command, require('./schema').command);
-        if(commandParameterValidationResult.error) {
-            exit = true;
-            return grunt.fail.fatal(commandParameterValidationResult.error);
-        }
-    });
-
-    if (exit) {
+    if(validator.isValid(config) === false) {
         return;
     }
 
