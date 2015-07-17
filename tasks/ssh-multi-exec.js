@@ -13,14 +13,10 @@ var defaultErrorHandler = function(error, context, done) {
 };
 
 var init = function() {
-    var done       = this.async(),
+    var next       = this.async(),
         target     = this.target,
         config     = this.data,
-        hosts      = config.hosts,
         username   = config.username,
-        privateKey = config.privateKey,
-        password   = config.password,
-        passphrase = config.passphrase,
         logger     = require('./logger')(config.logFn || console.log),
         validator  = require('./validator');
 
@@ -111,36 +107,36 @@ var init = function() {
         tunnel.on('error', function(err) {
             logger.write(shellPrefix, 'Connection error: ' + err.red);
             logger.flush(shellPrefix);
-            done();
+            next();
         });
 
-        if(privateKey) {
+        if(config.privateKey) {
             tunnel.connect({
                 host: host,
                 port: port,
                 username: username,
-                privateKey: fs.readFileSync(privateKey),
-                passphrase: passphrase
+                privateKey: fs.readFileSync(config.privateKey),
+                passphrase: config.passphrase
             });
         } else {
             tunnel.connect({
                 host: host,
                 port: port,
                 username: username,
-                password: password
+                password: config.password
             });
         }
     };
 
     if(config.maxDegreeOfParallelism) {
         logger.write('', ('\n\nexecuting command set "' + target + '" (maxDegreeOfParallelism: ' + config.maxDegreeOfParallelism + ')').underline, function(x) { return x; });
-        async.eachLimit(hosts, config.maxDegreeOfParallelism, executeCommandSet, function() {
-            done();
+        async.eachLimit(config.hosts, config.maxDegreeOfParallelism, executeCommandSet, function() {
+            next();
         });
     } else {
         logger.write('', ('\n\nexecuting command set "' + target + '"').underline, function(x) { return x; });
-        async.each(hosts, executeCommandSet, function() {
-            done();
+        async.each(config.hosts, executeCommandSet, function() {
+            next();
         });
     }
 };
