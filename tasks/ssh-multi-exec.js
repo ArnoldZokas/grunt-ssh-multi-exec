@@ -1,9 +1,10 @@
 'use strict';
 
-var async = require('async'),
-    fs    = require('fs'),
-    grunt = require('grunt'),
-    ssh   = require('ssh2');
+var async  = require('async'),
+    colors = require('colors/safe'),
+    fs     = require('fs'),
+    grunt  = require('grunt'),
+    ssh    = require('ssh2');
 
 var defaultErrorHandler = function(error, context, done) {
     if(!context.force) {
@@ -42,10 +43,10 @@ var init = function() {
                     force   = command.force || false;
 
                 if(hint) {
-                    logger.write(shellPrefix, '# ' + hint + (force ? ' (force)' : ''), function(x) { return x.grey; });
+                    logger.write(shellPrefix, '# ' + hint + (force ? ' (force)' : ''), function(x) { return colors.grey(x); });
                 }
 
-                logger.write(shellPrefix, input, function(x) { return x.yellow; });
+                logger.write(shellPrefix, input, function(x) { return colors.yellow(x); });
 
                 tunnel.exec(input, function(err, stream) {
                     if (err) {
@@ -78,7 +79,7 @@ var init = function() {
                         };
 
                         if(lastError) {
-                            logger.write(shellPrefix, lastError, function(x) { return x.red; });
+                            logger.write(shellPrefix, lastError, function(x) { return colors.red(x); });
                             logger.flush(shellPrefix);
                             error(lastError, { host: host, port: port, force: force }, function() {
                                 if(force === false) {
@@ -91,7 +92,7 @@ var init = function() {
                         }
                         else {
                             var data = response[shellPrefix + input];
-                            logger.write(shellPrefix, data, function(x) { return x.green; });
+                            logger.write(shellPrefix, data, function(x) { return colors.green(x); });
                             logger.flush(shellPrefix);
                             success(data, { host: host, port: port }, function() {
                                 next();
@@ -105,18 +106,40 @@ var init = function() {
         });
 
         tunnel.on('error', function(err) {
-            logger.write(shellPrefix, 'Connection error: ' + err.red);
+            logger.write(shellPrefix, 'Connection error: ' + colors.red(err), function(x) { return x; });
             logger.flush(shellPrefix);
             next();
         });
 
         if(config.privateKey) {
-            tunnel.connect({
-                host: host,
-                port: port,
-                username: username,
-                privateKey: fs.readFileSync(config.privateKey),
-                passphrase: config.passphrase
+            fs.exists(config.privateKey, function(exists) {
+                if(exists) {
+                    fs.readFile(config.privateKey, function(error, privateKey) {
+                        if(error) {
+                            logger.write(shellPrefix, 'Failed to load private key from path ' + config.privateKey, function(x) { return x; });
+                            logger.flush(shellPrefix);
+                            next();
+                        }
+
+                        try {
+                            tunnel.connect({
+                                host: host,
+                                port: port,
+                                username: username,
+                                privateKey: privateKey,
+                                passphrase: config.passphrase
+                            });
+                        } catch(error) {
+                            logger.write(shellPrefix, 'Connection error: ' + colors.red(error), function(x) { return x; });
+                            logger.flush(shellPrefix);
+                            next();
+                        }
+                    });
+                } else {
+                    logger.write(shellPrefix, 'Failed to load private key from path ' + config.privateKey, function(x) { return x; });
+                    logger.flush(shellPrefix);
+                    next();
+                }
             });
         } else {
             tunnel.connect({
@@ -129,12 +152,12 @@ var init = function() {
     };
 
     if(config.maxDegreeOfParallelism) {
-        logger.write('', ('\n\nexecuting command set "' + target + '" (maxDegreeOfParallelism: ' + config.maxDegreeOfParallelism + ')').underline, function(x) { return x; });
+        logger.write('', colors.underline('\n\nexecuting command set "' + target + '" (maxDegreeOfParallelism: ' + config.maxDegreeOfParallelism + ')'), function(x) { return x; });
         async.eachLimit(config.hosts, config.maxDegreeOfParallelism, executeCommandSet, function() {
             next();
         });
     } else {
-        logger.write('', ('\n\nexecuting command set "' + target + '"').underline, function(x) { return x; });
+        logger.write('', colors.underline('\n\nexecuting command set "' + target + '"'), function(x) { return x; });
         async.each(config.hosts, executeCommandSet, function() {
             next();
         });
