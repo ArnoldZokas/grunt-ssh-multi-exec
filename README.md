@@ -157,49 +157,45 @@ grunt.initConfig({
 
 ## Release History
 * **v4.2.3** (2015-07-17)
- * updated dependencies
+    * updated dependencies
 * **v4.2.0** (2015-03-23)
- * updated dependencies
+    * updated dependencies
 * **v4.1.0** (2015-01-20)
- * added `passphrase` option
+    * added `passphrase` option
 * **v4.0.4** (2014-11-26)
- * fixed error reporting
+    * fixed error reporting
 * **v4.0.3** (2014-08-31)
- * fixed error noop behaviour
+    * fixed error noop behaviour
 * **v4.0.2** (2014-08-31)
- * fixed error noop behaviour
+    * fixed error noop behaviour
 * **v4.0.1** (2014-08-05)
- * fixed noop behaviour
+    * fixed noop behaviour
 * **v4.0.0** (2014-08-05)
- * made callback behaviour more deterministic (to allow long-running operations to block further ssh command execution)
- * updated dependencies
- * updated to ssh2 v0.3.4 (hopefully, this will put an end to internal ssh2 errors we've been seeing)
+    * made callback behaviour more deterministic (to allow long-running operations to block further ssh command execution)
+    * updated dependencies
+    * updated to ssh2 v0.3.4 (hopefully, this will put an end to internal ssh2 errors we've been seeing)
 * **v3.1.1** (2014-03-19)
- * fixed a `force` option bug that was preventing execution of subsequent commands in some scenarios
+    * fixed a `force` option bug that was preventing execution of subsequent commands in some scenarios
 * **v3.1.0** (2014-03-18)
- * added `force` option
+    * added `force` option
 * **v3.0.0** (2014-03-14)
- * **Breaking change!** - remove `mode` option
- * added `maxDegreeOfParallelism` option
+    * **Breaking change!** - remove `mode` option
+    * added `maxDegreeOfParallelism` option
 * **v2.4.0** (2014-03-14)
- * added option to execute command sets sequentially
+    * added option to execute command sets sequentially
 * **v2.3.0** (2014-03-13)
- * added context to success and error callbacks
+    * added context to success and error callbacks
 * **v2.2.0** (2014-03-12)
- * fixed dependency versioning
+    * fixed dependency versioning
 * **v2.1.0** (2014-03-12)
- * fixed bug that was preventing execution of commands that do not return a response
+    * fixed bug that was preventing execution of commands that do not return a response
 * **v2.0.0** (2014-03-11)
- * **Breaking change!** - task renamed to `ssh-multi-exec`
+    * **Breaking change!** - task renamed to `ssh-multi-exec`
 * **v1.0.0** (2014-03-10)
- * **Breaking change!** - see port configuration
- * added support for executing commands against multiple boxes
- * added log message batching (clean, coherent logs)
+    * **Breaking change!** - see port configuration
+    * added support for executing commands against multiple boxes
+    * added log message batching (clean, coherent logs)
 * **v0.1.2** (2014-03-10)
- * added password-based authentication
+    * added password-based authentication
 * **v0.1.0** (2014-03-07)
- * initial release
-
-##Contributors
-* [@matteofigus](https://github.com/matteofigus)
-* [@jankowiakmaria](https://github.com/jankowiakmaria)
+    * initial release
