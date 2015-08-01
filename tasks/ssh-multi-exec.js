@@ -140,12 +140,19 @@ var init = function() {
                     next();
                 }
             });
-        } else {
+        } else if (config.password) {
             tunnel.connect({
                 host: host,
                 port: port,
                 username: username,
                 password: config.password
+            });
+        } else if (config.agent) {
+            tunnel.connect({
+                host: host,
+                port: port,
+                username: username,
+                agent: config.agent
             });
         }
     };
