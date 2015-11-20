@@ -2,9 +2,6 @@
   "name": "grunt-ssh-multi-exec",
   "version": "4.2.3",
   "description": "Execute a set of SSH commands against multiple boxes",
-  "engines": {
-    "node": "0.12.0"
-  },
   "main": "gruntfile.js",
   "scripts": {
     "test": "grunt && vagrant up && mocha --reporter spec --timeout 10s"
