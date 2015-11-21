@@ -3,6 +3,7 @@
 var expect = require('expect.js');
 
 var noop = function() { return function() {}; },
+    path = require('path'),
     task = require('./../tasks/ssh-multi-exec')(require('grunt'));
 
 describe('authentication', function() {
@@ -187,7 +188,7 @@ describe('authentication', function() {
                 data: {
                     hosts: ['127.0.0.1:2222'],
                     username: 'vagrant',
-                    privateKey: '/Users/' + process.env.USER + '/.vagrant.d/insecure_private_key',
+                    privateKey: path.join(__dirname, '../.vagrant/machines/one/virtualbox/private_key'),
                     logFn: noop,
                     commands: [
                         {

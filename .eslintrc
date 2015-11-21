@@ -9,6 +9,7 @@
         "new-cap": 0,
         "no-continue": 1,
         "no-lonely-if": 1,
+        "no-mixed-requires": 0,
         "no-multi-spaces": 0,
         "no-multiple-empty-lines": 1,
         "no-nested-ternary": 1,
