@@ -202,4 +202,27 @@ describe('authentication', function() {
             });
         });
     });
+
+    describe('agent', function() {
+        it.skip('happy path', function(done) {
+            task.call({
+                async: noop,
+                target: 'test',
+                data: {
+                    hosts: ['127.0.0.1:2222'],
+                    username: 'vagrant',
+                    agent: 'TODO',
+                    logFn: function(x) { console.log(x); },
+                    commands: [
+                        {
+                            input: 'echo 1',
+                            success: function() {
+                                done();
+                            }
+                        }
+                    ]
+                }
+            });
+        });
+    });
 });
