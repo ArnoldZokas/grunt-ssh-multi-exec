@@ -5,7 +5,7 @@ var expect = require('expect.js');
 var noop = function() { return function() {}; },
     task = require('./../tasks/ssh-multi-exec')(require('grunt'));
 
-describe.skip('single target (edge cases)', function() {
+describe('single target (edge cases)', function() {
     it('unreachable host', function(done) {
         task.call({
             async: noop,
@@ -14,17 +14,16 @@ describe.skip('single target (edge cases)', function() {
                 hosts: ['127.0.0.1:1234'],
                 username: 'test',
                 password: 'test',
-                logFn: noop,
+                logFn: function(message) {
+                    if(message) {
+                        expect(message).to.equal('\u001b[36mtest@127.0.0.1:1234 ~$ \u001b[39mConnection error: \u001b[31mError: connect ECONNREFUSED 127.0.0.1:1234\u001b[39m');
+                        done();
+                    }
+                },
                 commands: [
                     {
                         hint: 'hint',
-                        input: 'echo 1',
-                        success: function(data, context) {
-                            expect(data).to.equal('1\n');
-                            expect(context.host).to.equal('127.0.0.1');
-                            expect(context.port).to.equal('2222');
-                            done();
-                        }
+                        input: 'echo 1'
                     }
                 ]
             }
