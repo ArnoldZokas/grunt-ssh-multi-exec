@@ -165,7 +165,7 @@ describe('authentication', function() {
                     passphrase: 'BAD_PASSPHRASE',
                     logFn: function(message) {
                         if(message) {
-                            expect(message).to.equal('\u001b[36mtest@127.0.0.1:2222 ~$ \u001b[39mConnection error: \u001b[31mError: Malformed private key (expected sequence). Bad passphrase?\u001b[39m');
+                            expect(message).to.equal('\u001b[36mtest@127.0.0.1:2222 ~$ \u001b[39mConnection error: \u001b[31mInvalidAsn1Error: Expected 0x2: got 0x3c\u001b[39m');
                         } else {
                             done();
                         }

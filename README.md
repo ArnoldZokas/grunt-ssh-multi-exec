@@ -156,6 +156,8 @@ grunt.initConfig({
 ```
 
 ## Release History
+* **v4.2.4** (2016-04-07)
+    * updated dependencies
 * **v4.2.3** (2015-07-17)
     * updated dependencies
 * **v4.2.0** (2015-03-23)
